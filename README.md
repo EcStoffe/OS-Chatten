@@ -6,6 +6,6 @@ Parprogrammering
 Råstruktur klar om 2 veckor
 Använda flödesschema
 wireframes
-Daily-StandUp
+Daily-StandUp 
 Branches Git
 Slack-kanal - check
