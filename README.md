@@ -1,7 +1,7 @@
-# OS-Chatten
+﻿# OS-Chatten
 Chat-funktions riktlinjer
 
-Använda bootstrap3 
+Använda bootstrap3<br>
 Parprogrammering
 Råstruktur klar om 2 veckor
 Använda flödesschema
