@@ -21,8 +21,7 @@ Good to know git commands, Remember to remove any hard bracets.
 > git config --global --unset alias.[alias name]
 
 **Total .gitignore process**
->1. vim .gitignore<br>
- - i > .idea/ > esc > :wq<br>
+>1. vim .gitignore THEN i > .idea/ > esc > :wq<br>
 2. rm -rf .idea/ (tar bort .idea directory)<br>
 3. git status (för att se om .gitignore är med)<br>
 4. git add .gitignore<br>
