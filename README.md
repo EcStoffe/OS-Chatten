@@ -1,14 +1,12 @@
 ﻿# OS-Chatten
 Chat-funktions riktlinjer
-
-Använda Bootstrap3<br>
-Parprogrammering<br>
-Råstruktur klar om 2 veckor<br>
-Använda flödesschema<br>
-Wireframes<br>
-Daily-StandUp<br>
-Branches Git<br>
-Slack-kanal - check<br>
+- Använda Bootstrap3
+- Parprogrammering
+- Daily-StandUp
+- [ ] Flödesschema
+- [ ] Branches Git
+- [x] Wireframes
+- [x] Slack-kanal [OS-Chatt]
 
 ## GIT Commands
 Good to know git commands! Remember to remove any hard bracets.
