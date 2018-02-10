@@ -12,8 +12,9 @@ Slack-kanal - check<br>
 
 ## GIT Commands
 Good to know git commands! Remember to remove any hard bracets.
+
 **create and alias**
-> alias [the alias name]='git command'
+> alias [the alias name]='git command' <
 **See all branches**
 > git branch
 **Create and switch to branch locally**
