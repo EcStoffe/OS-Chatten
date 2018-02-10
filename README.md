@@ -35,5 +35,8 @@ git branch -a
 **Locally delete branch**
 > git branch -d [name_of_your_branch]
 
-**Pull merge with rebase (USE CAREFULLY)**
-> git pull --rebase
+**Git rebase commands (USE CAREFULLY)**
+> git rebase master (use if branch is behind master)<br>
+When/if conflict -> make correction -> save -> git add <edited_filename><br>
+then use: git rebase --continue<br>
+to abort rebase: git rebase --abort
