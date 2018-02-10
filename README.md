@@ -20,6 +20,17 @@ Good to know git commands, Remember to remove any hard bracets.
 **Remove and alias
 > git config --global --unset alias.[alias name]
 
+**Total .gitignore process**
+>1. vim .gitignore<br>
+ - i > .idea/ > esc > :wq<br>
+2. rm -rf .idea/ (tar bort .idea directory)<br>
+3. git status (för att se om .gitignore är med)<br>
+4. git add .gitignore<br>
+5. git commit -m".gitignore tillagd"<br>
+6. git status<br>
+7. git pull (if not up to date)<br>
+7. git push
+
 **See all branches**
 > git branch OR<br>
 git branch -a
