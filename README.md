@@ -9,11 +9,16 @@ Chat-funktions riktlinjer
 - [x] Slack-kanal [OS-Chatt]
 
 ## GIT Commands
-Good to know git commands! Remember to remove any hard bracets.
+Good to know git commands, Remember to remove any hard bracets.
 
-**create and alias**
-> alias [the alias name]='git command' OR<br>
-git config --global alias.<your alias> <git command>
+**Create and alias**
+> git config --global alias.[your alias] [git command]
+
+**List all aliases**
+> git config --get-regexp alias
+
+**Remove and alias
+> git config --global --unset alias.[alias name]
 
 **See all branches**
 > git branch OR<br>
