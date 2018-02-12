@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Landing page</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="style/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="style/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="style/cssBootstrapOverwrite.css">
+
+
+</head>
+<body>
+<main id="chat">
+    <section id="userNav" class="dropdown">
+        <a href="" class="dropdown-toggle" id="userSettingDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Username</a>
+        <article class="dropdown-menu" aria-labelledby="userSettingDropdown">
+            dropdown here
+        </article>
+    </section>
+    <section id="chatChannels">
+        <h3>Chatt Kanaler</h3>
+        <article id="channelCol" title="Chat Channels">
+            <i class="fas fa-arrow-up" href="#toggleChannels" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="toggleChannels"></i>
+        </article>
+        <article class="fade collapse" id="toggleChannels">
+            <a href="#" class="active">#General Chat</a>
+            <i class="fas fa-long-arrow-alt-down"></i>
+            <a href="#">#Hockey</a>
+            <i class="fas fa-long-arrow-alt-down"></i>
+            <a href="#">#Skidor</a>
+        </article>
+    </section>
+    <section id="generalChat">
+        <section id="chatControls">
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="far fa-smile"></i></span>
+                </div>
+                <input class="form-control" type="text" id="message" placeholder="Skriv meddelande">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-secondary"><i class="fas fa-sign-in-alt"></i></button>
+                </div>
+            </div>
+        </section>
+    </section>
+    <aside id="loggedIn">
+
+    </aside>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="script/bootstrap.min.js"></script>
+<script src="script/code.js"></script>
+</body>
+</html>

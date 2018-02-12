@@ -11,18 +11,19 @@ main {
     background: #0c5460;
     height:100vh;
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 section {
     height:auto;
     display:flex;
+    flex-wrap:nowrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-article {
+#loggForm {
     background:gainsboro;
     border-radius:5px;
     margin:auto;
@@ -52,4 +53,112 @@ form#registerUser > .form-group:last-of-type {
 }
 hr {
     margin-bottom:5px;
+}
+
+#userNav {
+    position:fixed;
+    top:0;
+    right:10px;
+    width:250px;
+    padding:15px 15px;
+    background:white;
+    color:black;
+    display:flex;
+    text-align: center;
+}
+#userNav a {
+    padding:0;
+    text-decoration: none;
+    color:black;
+}
+#generalChat, #loggedIn, #chatChannels {
+     background:white;
+     border-radius:5px;
+     margin:auto;
+     padding:20px 20px;
+     width:50%;
+     height:65%;
+     display:flex;
+     align-self: center;
+     flex-direction: column;
+     justify-content: flex-end;
+     align-items: center;
+ }
+#generalChat {
+    padding:10px 10px;
+}
+#loggedIn, #chatChannels {
+    width:20%;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+#chatChannels {
+    background:transparent;
+    width:15%;
+    height:65%;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+#channelCol {
+    border: 5px solid white;
+    background:transparent;
+    border-radius:50%;
+    width:50px;
+    height:50px;
+    margin:0;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size:20px;
+    color:white;
+}
+#toggleChannels {
+    background:transparent;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height:auto;
+    margin:20px 10px 10px;
+    color:white;
+}
+#toggleChannels a:first-of-type {
+    margin:0 0 15px 0;
+    color:white;
+}
+#toggleChannels a {
+    color:white;
+    margin:15px;
+    text-decoration: none;
+}
+.active {
+    font-weight: bold;
+}
+#userSettingDropdown, .dropdown-menu {
+    width:250px;
+    background:white;
+    padding:10px 10px;
+    margin: 0;
+}
+.dropdown-menu.show {
+    width:250px;
+    background:white;
+    padding:10px 10px;
+    margin: 10px 0 0;
+    border-radius:0;
+    border:none;
+}
+#chatControls {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+}
+#chatControls > .form-group {
+    margin-bottom:0;
 }
