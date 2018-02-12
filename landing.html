@@ -6,19 +6,19 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="style/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="style/cssBootstrapOverwrite.css">
 
 
 </head>
 <body>
-<main id="chat">
+<main id="landing">
     <section id="userNav" class="dropdown">
-        <a href="" class="dropdown-toggle" id="userSettingDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Username</a>
-        <article class="dropdown-menu" aria-labelledby="userSettingDropdown">
-            dropdown here
-        </article>
+        <i class="fas fa-user"></i>
+        <a href="#toggleSettings" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="toggleSettings">Username</a>
     </section>
+    <article class="fade collapse" id="toggleSettings">
+        <span><i class="fas fa-cog icon"></i> Account settings</span>
+    </article>
     <section id="chatChannels">
         <h3>Chatt Kanaler</h3>
         <article id="channelCol" title="Chat Channels">
