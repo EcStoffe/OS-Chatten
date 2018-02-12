@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>OS-Chatten</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/bootstrap-grid.min.css">
     <link rel="stylesheet" href="style/bootstrap-reboot.min.css">
@@ -14,20 +15,84 @@
         <article>
            <h4>Logga in</h4>
             <form action="">
-                <div class="form-group">
+                <div class="form-group input-group">
                     <label for="userName"></label>
                     <input id="userName" class="form-control"  type="text" placeholder="Användarnamn">
                 </div>
-                <div class="form-group">
+                <div class="form-group input-group">
                     <label for="password"></label>
-                    <input id="password" class="form-control" type="text"placeholder="Lösenord">
+                    <input id="password" class="form-control" type="password" placeholder="Lösenord">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-outline-secondary"><i class="fas fa-sign-in-alt"></i></button>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Logga in</button>
             </form>
             <hr>
-            <a href="#">Ny Användare</a> \ <a href="#">Glömt lösenord?</a>
+            <a href="#" data-toggle="modal" data-target="#newUser">Ny Användare</a> \ <a href="#" data-toggle="modal" data-target="#forgotPass">Glömt lösenord?</a>
         </article>
     </section>
+
+    <div class="modal fade" id="newUser" tabindex="-1" role="dialog" aria-labelledby="newUserLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newUserLabel">Registrera ny användare</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form action="" id="registerUser">
+                        <div class="form-group">
+                            <label for="usrName"></label>
+                            <input id="usrName" class="form-control"  type="text" placeholder="Användarnamn">
+                        </div>
+                        <div class="form-group">
+                            <label for="fName"></label>
+                            <input id="fName" class="form-control" type="text" placeholder="Förnamn">
+                        </div>
+                        <div class="form-group">
+                            <label for="lName"></label>
+                            <input id="lName" class="form-control" type="text" placeholder="Efternamn">
+                        </div>
+                        <div class="form-group">
+                            <label for="eMail"></label>
+                            <input id="eMail" class="form-control" type="email" placeholder="E-post">
+                        </div>
+                        <div class="form-group">
+                            <label for="pssWord"></label>
+                            <input id="pssWord" class="form-control" type="password" placeholder="Lösenord">
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="regAbort" type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
+                    <button  id="regUser" type="button" class="btn btn-primary">Skapa Konto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="forgotPass" tabindex="-1" role="dialog" aria-labelledby="forgotPassLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="forgotPassLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

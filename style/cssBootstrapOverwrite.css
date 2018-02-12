@@ -28,7 +28,7 @@ article {
     margin:auto;
     padding:20px 20px;
     width:300px;
-    height:300px;
+    height:auto;
     align-self: center;
     flex-direction: column;
     justify-content: center;
@@ -41,8 +41,14 @@ form {
     justify-content: center;
     align-items: center;
 }
-form > .form-group:first-of-type {
+form:first-of-type > .input-group:first-of-type {
+    margin-bottom: 1rem;
+}
+form#registerUser > .form-group {
     margin-bottom: 0;
+}
+form#registerUser > .form-group:last-of-type {
+    margin-bottom: 1rem;
 }
 hr {
     margin-bottom:5px;
