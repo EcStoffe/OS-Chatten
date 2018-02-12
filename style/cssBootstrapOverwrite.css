@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+body, main, section, article, aside {
+    margin:0;
+    padding:0;
+}
+body {
+}
+main {
+    background: #0c5460;
+    height:100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+section {
+    height:auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+article {
+    background:gainsboro;
+    border-radius:5px;
+    margin:auto;
+    padding:20px 20px;
+    width:300px;
+    height:300px;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+form {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form > .form-group:first-of-type {
+    margin-bottom: 0;
+}
+hr {
+    margin-bottom:5px;
+}
