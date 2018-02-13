@@ -15,7 +15,14 @@ function regForm(e) {
 
 // Save inputvalue
     saveInputs(username, firstname, lastname, email, password);
+// Clear form
+    document.getElementById('registerUser').reset();
     $('#newUser').modal('hide');
+// Show alert
+    document.querySelector('.alert').style.display = 'block';
+    setTimeout(function(){
+        document.querySelector('.alert').style.display = 'none';
+    },5000);
 }
 
 function getInputValue(id){

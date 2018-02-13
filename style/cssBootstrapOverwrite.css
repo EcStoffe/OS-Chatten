@@ -46,6 +46,12 @@ main {
     padding:20px 20px;
 }
 
+.alert {
+    background: #79c879;
+    color: #fff;
+    display: none;
+}
+
 #index form:first-of-type > .input-group:first-of-type { margin-bottom: 1rem; }
 #index form#registerUser > .form-group { margin-bottom: 0; }
 #index form#registerUser > .form-group:last-of-type { margin-bottom: 1rem; }
