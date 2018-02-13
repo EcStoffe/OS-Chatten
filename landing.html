@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Landing page</title>
     <!-- Script och stil länkar -->
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script type="text/javascript" src="script/createUser.js"></script>
+    <script type="text/javascript" src="script/login.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/bootstrap-grid.min.css">
@@ -17,11 +20,12 @@
         <a href="#toggleSettings"
            data-toggle="collapse"
            role="button" aria-expanded="false"
-           aria-controls="toggleSettings">Username</a>
+           aria-controls="toggleSettings"
+            id="userName">Username</a>
     </section>
     <article class="fade collapse" id="toggleSettings">
         <span><i class="fas fa-cog icon"></i> Account settings</span>
-        <span><i class="fas fa-sign-out-alt icon"></i> <a href="" id="userLogOut">Logout</a></span>
+        <span><i class="fas fa-sign-out-alt icon"></i> <a href="" id="btnLogout">Logout</a></span>
     </article>
     <!-- CHATT KANALERNA -->
     <section id="chatChannels">
@@ -72,10 +76,9 @@
         </p>
     </aside>
 </main>
-
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script type="text/javascript" src="script/bootstrap.min.js"></script>
-<script type="text/javascript" src="script/code.js"></script>
+<script type="text/javascript" src="script/firebase.js"></script>
 </body>
 </html>
