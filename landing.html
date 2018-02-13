@@ -3,26 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Landing page</title>
+    <!-- Script och stil länkar -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/bootstrap-grid.min.css">
     <link rel="stylesheet" href="style/cssBootstrapOverwrite.css">
-
-
 </head>
 <body>
 <main id="landing">
+    <!-- USER SETTINGS -->
     <section id="userNav" class="dropdown">
         <i class="fas fa-user"></i>
-        <a href="#toggleSettings" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="toggleSettings">Username</a>
+        <a href="#toggleSettings"
+           data-toggle="collapse"
+           role="button" aria-expanded="false"
+           aria-controls="toggleSettings">Username</a>
     </section>
     <article class="fade collapse" id="toggleSettings">
         <span><i class="fas fa-cog icon"></i> Account settings</span>
+        <span><i class="fas fa-sign-out-alt icon"></i> <a href="" id="userLogOut">Logout</a></span>
     </article>
+    <!-- CHATT KANALERNA -->
     <section id="chatChannels">
         <h3>Chatt Kanaler</h3>
         <article id="channelCol" title="Chat Channels">
-            <i class="fas fa-arrow-up" href="#toggleChannels" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="toggleChannels"></i>
+            <i class="fas fa-arrow-up"
+               href="#toggleChannels"
+               data-toggle="collapse"
+               role="button" aria-expanded="false"
+               aria-controls="toggleChannels"></i>
         </article>
         <article class="fade collapse" id="toggleChannels">
             <a href="#" class="active">#General Chat</a>
@@ -32,7 +41,17 @@
             <a href="#">#Skidor</a>
         </article>
     </section>
+    <!-- CHATT RUTAN -->
     <section id="generalChat">
+        <article id="chatContent">
+            <p>
+                <span id="chatUserName">Usernamn</span>
+                <span id="chatTimeStamp">Timestamp</span>
+            </p>
+            <p id="chatMessage">Jujubes icing marshmallow chupa chups croissant. Dragée pie caramels bonbon bear claw. Powder chocolate cake croissant carrot cake cake. Cookie candy canes sugar plum tart donut oat cake muffin.</p>
+        </article>
+
+        <!-- Chat controls -->
         <section id="chatControls">
             <div class="form-group input-group">
                 <div class="input-group-prepend">
@@ -45,14 +64,18 @@
             </div>
         </section>
     </section>
+    <!-- INLOGGADE ANVÄNDARE -->
     <aside id="loggedIn">
-
+        <strong>Inloggade användare</strong>
+        <p id="loggedInUsers">
+            username
+        </p>
     </aside>
 </main>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="script/bootstrap.min.js"></script>
-<script src="script/code.js"></script>
+<script type="text/javascript" src="script/bootstrap.min.js"></script>
+<script type="text/javascript" src="script/code.js"></script>
 </body>
 </html>

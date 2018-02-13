@@ -46,9 +46,9 @@ main {
     padding:20px 20px;
 }
 
-form:first-of-type > .input-group:first-of-type { margin-bottom: 1rem; }
-form#registerUser > .form-group { margin-bottom: 0; }
-form#registerUser > .form-group:last-of-type { margin-bottom: 1rem; }
+#index form:first-of-type > .input-group:first-of-type { margin-bottom: 1rem; }
+#index form#registerUser > .form-group { margin-bottom: 0; }
+#index form#registerUser > .form-group:last-of-type { margin-bottom: 1rem; }
 
 #index #loggForm > #loggOptions {
     width:100%;
@@ -147,6 +147,14 @@ form#registerUser > .form-group:last-of-type { margin-bottom: 1rem; }
     border-right:1px solid dimgray;
     font-size:19px;
 }
+#landing #toggleSettings span a {
+    text-decoration: none;
+    color:dimgray;
+}
+#landing #toggleSettings span a:hover {
+    text-decoration: none;
+    color: deeppink;
+}
 #landing  #generalChat, #loggedIn, #chatChannels {
     width:50%;
     height:65%;
@@ -234,6 +242,7 @@ form#registerUser > .form-group:last-of-type { margin-bottom: 1rem; }
 }
 #landing #chatControls {
     width:100%;
+    margin-top:16px;
 
     display:flex;
     flex-direction: row;
@@ -241,3 +250,50 @@ form#registerUser > .form-group:last-of-type { margin-bottom: 1rem; }
     align-items: center;
 }
 #landing #chatControls > .form-group { margin-bottom:0; }
+
+#landing #generalChat #chatContent {
+    width:100%;
+    padding: 7px 7px;
+    margin-top:5px;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+
+    border-radius:5px;
+}
+#landing #generalChat #chatContent:nth-child(odd) {
+    background: #eeeeee;
+}
+#landing #generalChat #chatContent > p:first-of-type {
+    margin-bottom:2px;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+#landing #generalChat #chatContent > p {
+    width:100%;
+    margin-bottom:0;
+}
+#landing #generalChat #chatContent > p:first-of-type span {
+    font-size:12px;
+    font-weight:bold;
+}
+#landing #generalChat #chatContent > p:first-of-type span:last-of-type {
+    font-size:11px;
+    font-weight:bold;
+}
+#landing #generalChat #chatContent #chatMessage {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+
+    font-size:13px;
+}
+#landing #loggedInUsers {
+    font-size:12px;
+}
