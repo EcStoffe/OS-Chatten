@@ -5,7 +5,6 @@
     <title>OS-Chatten</title>
     <!-- Script och stil länkar -->
     <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-    <script type="text/javascript" src="script/createUser.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/bootstrap-grid.min.css">
@@ -17,6 +16,7 @@
     <section>
         <article id="loggForm">
             <h4>Logga in</h4>
+            <div class="alert">Ditt konto är nu registrerat!</div>
             <form action="" id="registerUser">
                 <div class="form-group">
                     <label for="usrName"></label>
@@ -40,12 +40,17 @@
                 </div>
                 <button id="btnReg" type="submit" class="btn btn-primary float-right">Skapa Konto</button>
             </form>
+            <section id="loggOptions">
+                <a href="#" data-toggle="modal" data-target="#newUser">Ny Användare</a> \
+                <a href="#" data-toggle="modal" data-target="#forgotPass">Glömt lösenord?</a>
+            </section>
         </article>
     </section>
 </main>
+<script type="text/javascript" src="script/reguser.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="script/bootstrap.min.js"></script>
-<script type="text/javascript" src="script/firebase.js"></script>
+<script src="script/code.js"></script>
 </body>
 </html>
