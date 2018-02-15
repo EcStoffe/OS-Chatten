@@ -25,10 +25,6 @@ function regForm(e) {
     },5000);
 }
 
-function getInputValue(id){
-    return document.getElementById(id).value;
-}
-
 function saveInputs(username, firstname, lastname, email, password){
     let newUserRef = userRef.push();
     newUserRef.set({

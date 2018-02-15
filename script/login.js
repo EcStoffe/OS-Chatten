@@ -1,18 +1,10 @@
-let config = {
-        apiKey: "AIzaSyABUth1guGRkzmnthGwkExc9ElQ4r3xTSM",
-        authDomain: "os-chatt.firebaseapp.com",
-        databaseURL: "https://os-chatt.firebaseio.com",
-        projectId: "os-chatt",
-        storageBucket: "os-chatt.appspot.com",
-        messagingSenderId: "885393355147"
-    };
-    firebase.initializeApp(config);
+//Initialize firebase connection
+initializeFirebase();
 
-//Get elements
-
-let useremail = getInputValue('eMail');
-let password = getInputValue('pssWord');
-getInputValue('logForm').addEventListener('submit', logIn);
+    //get elements
+    let useremail = getInputValue('eMail');
+    let password = getInputValue('pssWord');
+    getInputValue('logForm').addEventListener('submit', logIn);
 
 function logIn(e) {
     // Get email and pass
@@ -32,8 +24,4 @@ function logIn(e) {
             btnLogout.classList.add('hide');
         }
     });
-}
-
-function getInputValue(id){
-    return document.getElementById(id).value;
 }
