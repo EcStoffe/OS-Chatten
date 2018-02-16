@@ -1,11 +1,15 @@
+//TARGET LOGIN BUTTON
 document.getElementById('chatLogin').addEventListener('submit', acessChat);
-let btnLogout = document.getElementById('logout');
-
+// VARIABLES FOR LOGIN INPUTS
 const useremail = document.getElementById('userEmail');
 const password = document.getElementById('userPass');
+
+//CALL THE DATABSE
 let database = firebase.database();
+//SET VARIABLE FOR WHICH ARRAY OBJECT CALLBACK FUNTION IS GOING TO LOOK IN
 let ref = database.ref('users');
 
+//FIREBASE FUNCTION TO CHECK FOR CHANGE IN USER/AUTH CHANGE, IF NOT LOGGED IN VALUE IS NULL
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // user signed in
@@ -13,47 +17,48 @@ firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById('loginNeeded').style.display = 'none';
 
         user = firebase.auth().currentUser;
-
         if(user !== null){
+            document.getElementById('displayName').innerHTML = user.displayName;
 
-            //let accountName = user.displayName;
-            //let accountUid = user.uid;
-            //let accountDisplay = user.providerData;
-            document.getElementById('userName').innerHTML = user.email;
+            //CALLBACK FUNTION TO GET DATA
             ref.on('value', getData, errorData);
             function getData(data){
                 //console.log(data.val());
+
+                // TARGET DATA KEYS & VALUES
                 let users = data.val();
                 let keys = Object.keys(users);
-                console.log(keys);
+                //UNCOMMENT THIS TO CONSOLE LOG THE WHOLE USER ARRAY console.log(keys);
 
+                //LOOPS ALL OBJECTS TO RETRIEVE KEY VALUES.
                 for(let i = 0; i < keys.length; i++){
                     let u = keys[i];
                     let username = users[u].userName;
                     let userEmail = users[u].email;
                     let first = users[u].fName;
                     let last = users[u].lName;
-                    console.log(username+' '+userEmail+' '+first+' '+last);
-                    if(userEmail === user.email){
-                        document.getElementById('dbUserName').innerHTML += username;
-                    }
-                }
+                    console.log(username+' '+userEmail+' '+first+' '+last); //Will display ALL users
 
+                    //CHECK TO FIND MATCH BETWEEN AUTH SERVER AND DATABASE USERS
+                    /*if(userEmail === user.email){
+                        document.getElementById('dbUserName').innerHTML += username;
+                    }*/
+                }
             }
+            // SEND AN ERROR IF LOGIN FAILED
             function errorData(err){
                 console.log('Error!');
                 console.log(err)
             }
-
-        }
-
+        } //END OF IF USER IS NOT NULL
     } else {
         // user not signed in
         document.getElementById('userWelcome').style.display = 'none';
         document.getElementById('loginNeeded').style.display = 'block';
     }
-});
+}); //firebase.auth().onAuthStateChanged ENDS
 
+//FUNCTION TO LOGIN AND ACCESS CHAT
 function acessChat(e) {
     e.preventDefault();
 
@@ -66,18 +71,25 @@ function acessChat(e) {
         let errorCode = error.code;
         let errorMessage = error.message;
 
-        window.alert("Error : " + errorMessage);
+        window.alert('Error : ' + errorMessage + '<br>' + errorCode);
 
         // ...
     });
+} //LOGIN FUNCTION ENDS
 
-}
+//TARGET LOGOUT BUTTON
+let btnLogout = document.getElementById('logout');
+
+//EVENTLISTENER FOR LOGOUT BUTTON
 btnLogout.addEventListener('click', function(e){
     e.preventDefault();
-    /*let user = firebase.auth().currentUser;
+    firebase.auth().signOut();
+});
+
+//CHANGE DISPLAYNAME IN AUTH SERVER CODE
+//TODO: Needs to be connected to input and button.
+/*let user = firebase.auth().currentUser;
     user.updateProfile({
         displayName: 'malinH'
     });*/
-    firebase.auth().signOut();
-});
 

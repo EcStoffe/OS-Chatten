@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>OS-Chatten</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600" rel="stylesheet">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="style/mainStyle.css">
 </head>
 <body>
@@ -26,23 +25,10 @@
             <div>Did you forget your login?</div>
         </section>
         <section id="userWelcome">
-            <section id="fixedNav">
-                <h3>OS-Chatten</h3>
-
-                <div id="dbUserName">
-                    <i class="fas fa-user icon"></i>
-                    <span id="displayName"></span>
-                    <i class="fas fa-cogs icon"></i>
-                    <div id="exitChat">( <span id="logout">sign out</span> )</div>
-                </div>
-            </section>
-            <section id="userControls">
-                <div>
-                    <p>Update account</p>
-                    <p>Possible link</p>
-                </div>
-            </section>
-
+            <h3>Logout</h3>
+                <div>Your are logged in as: <span id="userName"></span></div>
+                <div id="dbUserName">Logged in as: </div>
+                <button id="logout" type="submit">Exit Chat</button>
         </section>
     </main>
 
