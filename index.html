@@ -9,19 +9,27 @@
 <body>
     <main id="loginControl">
         <!-- LOGIN FORM -->
-        <h3>Login to chat</h3>
-        <form id="chatLogin">
-            <label for="userEmail">
-                <span>Email</span>
-                <input id="userEmail" type="email" placeholder="email">
-            </label>
-            <label for="userPass">
-                <span>Password</span>
-                <input id="userPass" type="password" placeholder="password">
-            </label>
-            <button type="submit">Enter Chat</button>
-        </form>
-        <section>Did you forget your login?</section>
+        <section id="loginNeeded">
+            <h3>Login to chat</h3>
+            <form id="chatLogin">
+                <label for="userEmail">
+                    <span>Email</span>
+                    <input id="userEmail" type="email" placeholder="email">
+                </label>
+                <label for="userPass">
+                    <span>Password</span>
+                    <input id="userPass" type="password" placeholder="password">
+                </label>
+                <button type="submit">Enter Chat</button>
+            </form>
+            <div>Did you forget your login?</div>
+        </section>
+        <section id="userWelcome">
+            <h3>Logout</h3>
+                <div>Your are logged in as: <span id="userName"></span></div>
+                <div id="dbUserName">Logged in as: </div>
+                <button id="logout" type="submit">Exit Chat</button>
+        </section>
     </main>
 
 
@@ -39,5 +47,6 @@
         };
         firebase.initializeApp(config);
     </script>
+    <script type="text/javascript" src="script/login.js"></script>
 </body>
 </html>

@@ -19,19 +19,31 @@ firebase.auth().onAuthStateChanged(function(user) {
             //let accountName = user.displayName;
             //let accountUid = user.uid;
             //let accountDisplay = user.providerData;
-
+            document.getElementById('userName').innerHTML = user.email;
             ref.on('value', getData, errorData);
             function getData(data){
-                console.log(data.val());
+                //console.log(data.val());
+                let users = data.val();
+                let keys = Object.keys(users);
+                console.log(keys);
+
+                for(let i = 0; i < keys.length; i++){
+                    let u = keys[i];
+                    let username = users[u].userName;
+                    let userEmail = users[u].email;
+                    let first = users[u].fName;
+                    let last = users[u].lName;
+                    console.log(username+' '+userEmail+' '+first+' '+last);
+                    if(userEmail === user.email){
+                        document.getElementById('dbUserName').innerHTML += username;
+                    }
+                }
+
             }
             function errorData(err){
                 console.log('Error!');
                 console.log(err)
             }
-            /*console.log(accountName);
-            console.log(accountUid);
-            console.log(accountDisplay);*/
-            //document.getElementById('userName').innerHTML = ' '+accountName+' uid: '+accountUid+'<br>'+accountDisplay;
 
         }
 
