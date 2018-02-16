@@ -55,16 +55,18 @@ body {
 #fixedNav #dbUserName .icon { margin-right:10px; }
 #fixedNav #dbUserName .icon:last-of-type { color: darkslategray; cursor:pointer; }
 #userControls {
-    width:200px;
+    width:250px;
     height:auto;
+    padding:10px 10px;
 
     display:none;
 
     position:fixed;
-    top:50px;
+    top:63px;
     right:0;
 
-    background:red;
+    font: normal 400 12px/12px 'Montserrat', sans-serif;
+    background:gainsboro;
 }
 #userControls > div {
     width:100%;
@@ -74,4 +76,14 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+}
+#userControls > div p {
+    width:100%;
+    margin:0 0 5px 0;
+    padding:2px 0 2px 5px;
+    text-transform: lowercase;
+    border-left:3px solid darkslategray;
+}
+#userControls > div p:last-of-type {
+    margin:0;
 }

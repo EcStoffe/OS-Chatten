@@ -20,6 +20,20 @@ firebase.auth().onAuthStateChanged(function(user) {
         if(user !== null){
             document.getElementById('displayName').innerHTML = user.displayName;
 
+            //TARGET COG ICON AND WHEN CLICKED HIDE USER NAV
+            document.getElementById("userControls").addEventListener("mouseleave", hideUserNav);
+            //TARGET COG ICON AND WHEN CLICKED SHOW USER NAV
+            document.getElementById('userSettings').addEventListener('click', showUserNav);
+            function showUserNav(e) {
+                e.preventDefault();
+                document.getElementById('userControls').style.display = 'block';
+            }
+            //FUNCTION TO HIDE USER NAV
+            function hideUserNav(e) {
+                e.preventDefault();
+                document.getElementById('userControls').style.display = 'none';
+            }
+
             //CALLBACK FUNTION TO GET DATA
             ref.on('value', getData, errorData);
             function getData(data){
