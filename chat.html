@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OS-Chatten</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="style/mainStyle.css">
+</head>
+<body>
+<main id="loginControl">
+    <section id="userWelcome">
+        <section id="fixedNav">
+            <h3>OS-Chatten</h3>
+
+            <div id="dbUserName">
+                <i class="fas fa-user icon"></i>
+                <span id="displayName"></span>
+                <i id="userSettings" class="fas fa-cogs icon"></i>
+                <div id="exitChat">( <span id="logout">sign out</span> )</div>
+            </div>
+        </section>
+        <section id="userControls">
+            <div>
+                <p>Update account</p>
+                <p>Possible link</p>
+            </div>
+        </section>
+    </section>
+</main>
+
+
+<!-- FIREBASE INITIALIZING -->
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script type="text/javascript" src="script/firebaseInitialize.js"></script>
+<script type="text/javascript" src="script/functions.js"></script>
+<script type="text/javascript" src="script/chat.js"></script>
+</body>
+</html>

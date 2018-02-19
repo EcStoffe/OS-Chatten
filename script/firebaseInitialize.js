@@ -1,5 +1,4 @@
-//Initialize firebase
-
+// Initialize Firebase
 let config = {
     apiKey: "AIzaSyABUth1guGRkzmnthGwkExc9ElQ4r3xTSM",
     authDomain: "os-chatt.firebaseapp.com",
