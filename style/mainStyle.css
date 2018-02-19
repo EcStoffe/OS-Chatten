@@ -87,24 +87,28 @@ body {
 #userControls > div p:last-of-type {
     margin:0;
 }
-#loginNeeded {
+#regUser, #loginControl {
+    width:400px;
+}
+#loginNeeded, #newUser {
      display:flex;
      flex-direction: column;
      justify-content: flex-start;
      align-items: center;
 }
-#loginNeeded h3 {
+#loginNeeded h3, #regUser section h3 {
     text-align: center;
     font: normal 700 15px/15px 'Montserrat', sans-serif;
     color: darkslategray;
 }
-#loginNeeded form {
+#loginNeeded form, #newUser {
+    width:100%;
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
 }
-#loginNeeded form button {
+#loginNeeded form button, #newUser button {
     width:100%;
     padding:1rem;
     margin-top:10px;
@@ -115,7 +119,7 @@ body {
     font: normal 400 12px/12px 'Montserrat', sans-serif;
     text-transform: lowercase;
 }
-#loginNeeded form label {
+#loginNeeded form label, #newUser label {
     width:100%;
     margin-bottom:5px;
 
@@ -124,10 +128,10 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
 }
-#loginNeeded form label:last-of-type {
+#loginNeeded form label:last-of-type, #newUser label:last-of-type {
     margin-bottom:0;
 }
-#loginNeeded form label span {
+#loginNeeded form label span, #newUser label span {
     width:30%;
     padding:1rem;
     margin-bottom:5px;
@@ -140,7 +144,10 @@ body {
     font: normal 400 12px/12px 'Montserrat', sans-serif;
     text-transform: lowercase;
 }
-#loginNeeded form label input {
+#newUser label span {
+    width:40%;
+}
+#loginNeeded form label input, #newUser label input {
     width:70%;
     padding:1rem;
     margin-bottom:5px;
@@ -151,7 +158,9 @@ body {
     color:black;
     border:none;
     font: normal 400 12px/12px 'Montserrat', sans-serif;
-    text-transform: lowercase;
+}
+#newUser label input {
+    width:60%;
 }
 #loginNeeded > div {
     padding:1rem;

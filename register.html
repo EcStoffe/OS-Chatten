@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OS-Chatten</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="style/mainStyle.css">
+</head>
+<body>
+<main id="regUser">
+    <!-- LOGIN FORM -->
+    <section>
+        <h3>Registrera ny användar</h3>
+        <form id="newUser">
+            <label for="newUserName">
+                <span>Användarnamn</span>
+                <input id="newUserName" type="text" placeholder="Anna89" required>
+            </label>
+            <label for="newUserFullName">
+                <span>Namn</span>
+                <input id="newUserFullName" type="text" placeholder="Anna Andersson" required>
+            </label>
+            <label for="newUserEmail">
+                <span>Email</span>
+                <input id="newUserEmail" type="email" placeholder="ex. annaanderson@gmail.com" required>
+            </label>
+            <label for="newUserPass">
+                <span>Lösenord</span>
+                <input id="newUserPass" type="password" placeholder="lösenord" required>
+            </label>
+            <button type="submit">Registrera ny användare</button>
+        </form>
+    </section>
+</main>
+
+
+<!-- FIREBASE INITIALIZING -->
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script type="text/javascript" src="script/firebaseInitialize.js"></script>
+<!--<script type="text/javascript" src="script/functions.js"></script>-->
+<script type="text/javascript" src="script/registerUser.js"></script>
+</body>
+</html>

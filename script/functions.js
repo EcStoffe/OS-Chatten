@@ -30,11 +30,3 @@ function errorData(err){
     console.log('Error!');
     console.log(err)
 }
-//TARGET LOGOUT BUTTON
-document.getElementById('logout').addEventListener("click", logOut);
-
-//EVENTLISTENER FOR LOGOUT BUTTON
-function logOut(e) {
-    e.preventDefault();
-    firebase.auth().signOut();
-}

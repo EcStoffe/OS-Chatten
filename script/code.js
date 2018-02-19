@@ -19,7 +19,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             //let accountName = user.displayName;
             //let accountUid = user.uid;
             //let accountDisplay = user.providerData;
-
+            console.log(user.displayName);
             ref.on('value', getData, errorData);
             function getData(data){
                 console.log(data.val());
