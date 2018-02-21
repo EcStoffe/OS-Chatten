@@ -33,7 +33,7 @@ function sendMessage(e) {
 function saveMessage(myUserName, chatText, timeStamp){
     let newMessageRef = {
         username: myUserName,
-        message: chatText,
+        chattext: chatText,
         timestamp: timeStamp
     };
 

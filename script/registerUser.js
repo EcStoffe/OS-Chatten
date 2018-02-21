@@ -3,8 +3,6 @@
 
 document.getElementById('newUser').addEventListener('submit', regForm);
 
-//Get values from input
-
 function regForm(e) {
     e.preventDefault();
     let username = getInputValue('newUserName');
@@ -16,17 +14,18 @@ function regForm(e) {
     const promise = auth.createUserWithEmailAndPassword(email, password);
     promise.catch(e => console.log("Error: ", e.message));
     firebase.auth().onAuthStateChanged(user => {
-        //console.log("user after on auth state changed", user.displayName);
+        console.log("user after on auth state changed", user.displayName);
         if(user) {
             // Save inputvalue
             saveInputs(username, fullname, email, password);
-            //if(user !== null) {
+            if(user !== null) {
                 user.updateProfile({
                     displayName: username
                 });
-                console.log("after update profile", user);
-            //}
-            window.location="chat.html";
+                //console.log("after update profile", user);
+            }
+            window.location="index.html";
+            //TODO: The promise is delyaing the displayname. Redirect manually by user to loginside.
         } else {
             console.log('not logged in');
         }
@@ -47,5 +46,5 @@ function saveInputs(username, fullname, email, password){
         password: password
     };
 
-    firebase.database().ref("users").push(newUserRef)
+    firebase.database().ref("users/").push(newUserRef)
 }
