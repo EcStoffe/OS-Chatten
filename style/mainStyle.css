@@ -254,4 +254,8 @@ body {
 
     display:none;
     text-align: center;
+    font: normal 200 11px/11px 'Montserrat', sans-serif;
+}
+#alert a {
+    color:darkslategray;
 }
