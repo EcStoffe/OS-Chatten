@@ -5,10 +5,11 @@
     <title>OS-Chatten</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/mainStyle.css">
 </head>
 <body>
-<main id="loginControl">
+<main id="chatDirectory">
     <section id="userWelcome">
         <section id="fixedNav">
             <h3>OS-Chatten</h3>
@@ -27,13 +28,33 @@
             </div>
         </section>
     </section>
+    <!-- CHAT APPLICATION -->
+    <section id="generalChat">
+        <form id="chatControls">
+            <section id="displayMessage">
+
+            </section>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="far fa-smile"></i></span>
+                </div>
+                <input class="form-control" type="text" id="message" placeholder="Skriv meddelande">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-secondary"><i class="fas fa-sign-in-alt"></i></button>
+                </div>
+            </div>
+        </form>
+    </section>
 </main>
 
 
 <!-- FIREBASE INITIALIZING -->
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 <script type="text/javascript" src="script/firebaseInitialize.js"></script>
-<script type="text/javascript" src="script/functions.js"></script>
 <script type="text/javascript" src="script/chat.js"></script>
+<script type="text/javascript" src="script/write.js"></script>
+<script type="text/javascript" src="script/read.js"></script>
+<script src="script/bootstrap/jquery-3.3.1.min.js"></script>
+<script src="script/bootstrap/bootstrap.min.js"></script>
 </body>
 </html>
