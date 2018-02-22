@@ -21,6 +21,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         if(user !== null){
             myUserName = user.displayName;
+            document.getElementById('onlinePresence').innerHTML = myUserName;
             //ID TARGET TO DISPLAY USERNAME IN TOP RIGHT CORNER
             document.getElementById('displayName').innerHTML = myUserName;
             //TARGET COG ICON AND WHEN CLICKED HIDE USER NAV

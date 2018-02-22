@@ -259,3 +259,12 @@ body {
 #alert a {
     color:darkslategray;
 }
+.onlineWindow {
+    width: 200px;
+    height: 445px;
+    border: 1px solid black;
+}
+
+#onlinePresence, .onlineInfo {
+    padding: 5px;
+}
