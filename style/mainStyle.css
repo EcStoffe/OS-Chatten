@@ -196,7 +196,7 @@ body {
     margin-bottom:0;
 }
 
-#chatContent {
+.chatContent {
     width:100%;
     padding: 7px 7px;
     margin-top:5px;
@@ -208,10 +208,10 @@ body {
 
     border-radius:5px;
 }
-#chatContent:nth-child(odd) {
+.chatContent:nth-child(odd) {
     background: #eeeeee;
 }
-#chatContent > p:first-of-type {
+.chatContent > p:first-of-type {
     margin-bottom:2px;
 
     display:flex;
@@ -219,19 +219,19 @@ body {
     justify-content: space-between;
     align-content: flex-start;
 }
-#chatContent > p {
+.chatContent > p {
     width:100%;
     margin-bottom:0;
 }
-#chatContent > p:first-of-type span {
+.chatContent > p:first-of-type span {
     font-size:12px;
     font-weight:bold;
 }
-#chatContent > p:first-of-type span:last-of-type {
+.chatContent > p:first-of-type span:last-of-type {
     font-size:11px;
     font-weight:bold;
 }
-#chatContent #chatMessage {
+.chatContent .chatMessage {
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -254,4 +254,8 @@ body {
 
     display:none;
     text-align: center;
+    font: normal 200 11px/11px 'Montserrat', sans-serif;
+}
+#alert a {
+    color:darkslategray;
 }

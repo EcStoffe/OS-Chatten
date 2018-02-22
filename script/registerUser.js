@@ -22,10 +22,15 @@ function regForm(e) {
                 user.updateProfile({
                     displayName: username
                 });
-                //console.log("after update profile", user);
+                console.log("after update profile", user);
             }
-            window.location="index.html";
-            //TODO: The promise is delyaing the displayname. Redirect manually by user to loginside.
+            /*if(email === user.email){
+                document.getElementById('dbUserName').innerHTML += username;
+            }*/
+            let location = "index.html";
+            document.getElementById('alert').style.display = "block";
+            document.getElementById('alert').innerHTML = "Logga in <a href="+location+">här</a>";
+            //window.location="index.html";
         } else {
             console.log('not logged in');
         }
@@ -39,12 +44,11 @@ function getInputValue(id){
 }
 
 function saveInputs(username, fullname, email, password){
-    let newUserRef = {
+    firebase.database().ref('users/' + username).set({
         username: username,
         name: fullname,
         email: email,
-        password: password
-    };
-
-    firebase.database().ref("users/").push(newUserRef)
+        password: password,
+        status: "Offline"
+    });
 }
