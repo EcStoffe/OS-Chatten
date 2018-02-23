@@ -5,14 +5,14 @@ function theTimer() {
     
 let date = new Date();
 
-let yyyy = date.getFullYear().toString();
-let mm = (date.getMonth() + 1).toString();
-if(mm.length < 2){
-    mm = 0 + mm;
+let year = date.getFullYear().toString();
+let month = (date.getMonth() + 1).toString();
+if(month.length < 2){
+    month = 0 + month;
 }
-let dd  = date.getDate().toString();
-if(dd.length < 2){
-    dd = 0 + dd;
+let day  = date.getDate().toString();
+if(day.length < 2){
+    day = 0 + day;
 }
 let hour = date.getHours().toString();
 if(hour.length < 2){
@@ -23,7 +23,7 @@ if(minut.length < 2){
     minut = 0 + minut;
 }
 
-timeStamp = yyyy + '-' + mm + '-' + dd + " " + hour + ':' + minut;
+timeStamp = year + '-' + month + '-' + day + " " + hour + ':' + minut;
 
 document.getElementsByClassName("chatTimeStamp").innerHTML += timeStamp + currentTime;
 }
