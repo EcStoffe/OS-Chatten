@@ -4,6 +4,7 @@ document.getElementById('chatLogin').addEventListener('submit', acessChat);
 const useremail = document.getElementById('userEmail');
 const password = document.getElementById('userPass');
 
+
 function acessChat(e) {
     e.preventDefault();
 
@@ -20,6 +21,7 @@ function acessChat(e) {
         // ...
     });
 } //LOGIN FUNCTION ENDS
+
 
 //FIREBASE FUNCTION TO CHECK FOR CHANGE IN USER/AUTH CHANGE, IF NOT LOGGED IN VALUE IS NULL
 firebase.auth().onAuthStateChanged(function(user) {
