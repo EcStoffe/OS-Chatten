@@ -21,8 +21,19 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         if(user !== null){
             myUserName = user.displayName;
-            document.getElementById('onlinePresence').innerHTML = myUserName;
+            /*let amOnline = new Firebase('https://os-chatten.firebaseio.com/.info/connected');
+            let userRef = new Firebase('https://os-chatten.firebaseio.com/presence/' + user.uid);
+            amOnline.on('value', function(snapshot) {
+                if (snapshot.val()) {
+                    userRef.onDisconnect().remove();
+                    userRef.set(true);
+                }
+            });*/
+            //document.getElementById('onlinePresence').innerHTML = myUserName;
             //ID TARGET TO DISPLAY USERNAME IN TOP RIGHT CORNER
+            for (let usersOnline of user){
+            document.getElementById('onlinePresence').innerHTML = myUserName;
+            }
             document.getElementById('displayName').innerHTML = myUserName;
             //TARGET COG ICON AND WHEN CLICKED HIDE USER NAV
             document.getElementById("userControls").addEventListener("mouseleave", hideUserNav);
