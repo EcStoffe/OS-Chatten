@@ -23,9 +23,17 @@ function acessChat(e) {
 
 //FIREBASE FUNCTION TO CHECK FOR CHANGE IN USER/AUTH CHANGE, IF NOT LOGGED IN VALUE IS NULL
 firebase.auth().onAuthStateChanged(function(user) {
+    let ref = firebase.database().ref("users/").child(user.displayName);
     if (user) {
-        location.href = "chat.html";
-    } else {
-        // user not signed in
+
+        ref.update({
+            status: "I'm online."
+        });
+       // location.href = "chat.html";
     }
+    ref.onDisconnect().update({
+        status: "I'm offline."
+    });
 }); //firebase.auth().onAuthStateChanged ENDS
+
+
