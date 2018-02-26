@@ -31,7 +31,14 @@ firebase.auth().onAuthStateChanged(function(user) {
             //EVENTLISTENER FOR LOGOUT BUTTON
             function logOut(e) {
                 e.preventDefault();
-                firebase.auth().signOut();
+                let ref = firebase.database().ref("users/"+myUserName);
+                ref.update({
+                    status: "Offline"
+                }).then(function() {
+                    firebase.auth().signOut();
+                }).catch(function() {
+                    alert("Something went wrong")
+                });
             }
             //TARGET LOGOUT BUTTON
             document.getElementById('logout').addEventListener("click", logOut);
