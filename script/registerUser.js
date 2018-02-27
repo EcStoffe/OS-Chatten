@@ -41,6 +41,6 @@ function saveInputs(username, fullname, email, password){
         name: fullname,
         email: email,
         password: password,
-        status: "Offline"
+        status: "Online"
     });
 }
