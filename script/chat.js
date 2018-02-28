@@ -7,12 +7,15 @@ function hideUserNav(e) {
     $('#userControls').hide();
 }
 // Firebase auth check for status change
+let isOnline = [];
+let refOn = db.ref('users/');
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         let ref = firebase.database().ref("users/"+user.displayName);
         ref.update({
             status: "Online"
-        }).then(function() { //..
+        }).then(function() {
+            //...
         }).catch(function() {
             alert("Something went wrong")
         });
@@ -21,20 +24,17 @@ firebase.auth().onAuthStateChanged(function(user) {
             $('#userSettings').on('click', showUserNav); // show user navigation
             $('#userControls').on('mouseleave', hideUserNav); // hide user navigation
 
-            //TODO: Push user into array
-            //TODO: Loop array/object?
-            //TODO: Display the users in the array
-            let isOnline = [];
-            let users = db.ref('users/'+user.displayName);
-            users.on('value', function(snapshot) {
-                for (let userOnline of Object.values(snapshot.val())) {
-                    userOnline = snapshot.val();
-                    console.log(userOnline.username+" is "+userOnline.status);
-                    if(userOnline.status === "Online") {
-                        isOnline.push(userOnline.username)
-                    }
+            //TODO: Push user into array of objects ((DONE???))
+            //TODO: Loop array/object to display
+            //TODO: Remove users from array of objects when status update to offline
+
+            refOn.on('child_changed', function(data) {
+                if(data.val().status === "Online") {
+                    isOnline.push({username: data.val().username});
                     console.log(isOnline)
                 }
+                //console.log('child changed: '+data.val().username, data.val().status);
+                //console.log(isOnline)
             });
 
             function logOut(e) {
