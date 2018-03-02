@@ -12,6 +12,7 @@ let isOnline = [];
 let refOn = db.ref('users/').child('/');
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+        myUserName = user.displayName;
         let ref = firebase.database().ref("users/"+user.displayName);
         ref.update({
             status: "Online"

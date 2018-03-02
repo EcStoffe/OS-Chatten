@@ -6,6 +6,7 @@ function theTimer() {
     let date = currentDate.toLocaleDateString();
     document.getElementsByClassName("chatTimeStamp").innerHTML += date + time;
     
+timeStamp = date+' '+time;
 }
 //TRIGGER SUBMIT EVENTLISTENER
 document.getElementById('chatControls').addEventListener('submit', sendMessage);
@@ -17,7 +18,6 @@ function sendMessage(e) {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // Sign in
-            console.log(myUserName);
             saveMessage(myUserName, chatText, timeStamp);
             // Clear form
             document.getElementById('chatControls').reset();
