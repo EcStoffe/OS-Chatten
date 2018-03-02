@@ -33,6 +33,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                     }
                 });
                     //console.log(isOnline);
+                showOnlineUsers.innerHTML = "";
                     for(let userOnline of isOnline){
 
                         let usersDisplay = document.createElement('p');
