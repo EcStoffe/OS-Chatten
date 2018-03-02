@@ -1,43 +1,70 @@
-// VARIABLES FOR LOGIN INPUTS
-/*const userEmail = document.getElementById('userEmail');
-const password = document.getElementById('userPass');*/
-/*
-//CALL THE DATABSE
-let database = firebase.database();
-//SET VARIABLE FOR WHICH ARRAY OBJECT CALLBACK FUNTION IS GOING TO LOOK IN
-let ref = database.ref('users');*/
 function showUserNav(e) {
     e.preventDefault();
-    document.getElementById('userControls').style.display = 'block';
+    $('#userControls').show();
 }
-//FUNCTION TO HIDE USER NAV
 function hideUserNav(e) {
     e.preventDefault();
-    document.getElementById('userControls').style.display = 'none';
+    $('#userControls').hide();
 }
-let myUserName = "";
-//FIREBASE FUNCTION TO CHECK FOR CHANGE IN USER/AUTH CHANGE, IF NOT LOGGED IN VALUE IS NULL
+// Firebase auth check for status change
+let isOnline = [];
+//let refOn = db.ref('users/').orderByChild('status').equalTo('Online');
+let refOn = db.ref('users/').child('/');
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+        let ref = firebase.database().ref("users/"+user.displayName);
+        ref.update({
+            status: "Online"
+        });
         if(user !== null){
-            myUserName = user.displayName;
-            document.getElementById('onlinePresence').innerHTML = myUserName;
-            //ID TARGET TO DISPLAY USERNAME IN TOP RIGHT CORNER
-            document.getElementById('displayName').innerHTML = myUserName;
-            //TARGET COG ICON AND WHEN CLICKED HIDE USER NAV
-            document.getElementById("userControls").addEventListener("mouseleave", hideUserNav);
-            //TARGET COG ICON AND WHEN CLICKED SHOW USER NAV
-            document.getElementById('userSettings').addEventListener('click', showUserNav);
-            //EVENTLISTENER FOR LOGOUT BUTTON
+            //TODO: Push user into array of objects ((DONE???))
+                let existing = document.getElementById('onlineWindow');
+                let showOnlineUsers = document.createElement('div');
+                showOnlineUsers.setAttribute('id', 'onlinePresence');
+                $(existing).append(showOnlineUsers);
+            refOn.on("value", function(data) {
+                let users = data.val();
+                let values = Object.values(users);
+                //console.log("users", users);
+                values.forEach(function(onlineUser) {
+                    //console.log("username", onlineUser.username+' : '+onlineUser.status);
+                    if(onlineUser.status === "Online"){
+                        isOnline.push({username: onlineUser.username, status: onlineUser.status});
+                    }
+                });
+                    //console.log(isOnline);
+                    for(let userOnline of isOnline){
+
+                        let usersDisplay = document.createElement('p');
+                        usersDisplay.innerText = userOnline.username;
+                        $(showOnlineUsers).append(usersDisplay);
+                        console.log(usersDisplay);
+                        console.log("isOnline array", userOnline);
+                        console.log("display username", userOnline.username);
+                    }
+            });
+
+            $('#displayName').html(user.displayName); //display username
+            $('#userSettings').on('click', showUserNav); // show user navigation
+
+            $('#userControls').on('mouseleave', hideUserNav); // hide user navigation
+            //TODO: Loop array/object to display
+            //TODO: Remove users from array of objects when status update to offline
+
             function logOut(e) {
                 e.preventDefault();
-                firebase.auth().signOut();
+                let ref = firebase.database().ref("users/"+user.displayName);
+                ref.update({
+                    status: "Offline"
+                }).then(function() {
+                    firebase.auth().signOut();
+                }).catch(function() {
+                    alert("Something went wrong")
+                });
             }
-            //TARGET LOGOUT BUTTON
-            document.getElementById('logout').addEventListener("click", logOut);
-        } //END OF IF USER IS NOT NULL
+            $('#logout').on('click', logOut); // logout
+        }
     } else {
-        // IF NO USER IS FOUND GO TO INDEX FOR LOGIN
-        location.href = "index.html";
+        location.href = "index.html"; // when use is not online, redirect to index.html
     }
-}); //firebase.auth().onAuthStateChanged ENDS
+});

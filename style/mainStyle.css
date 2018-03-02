@@ -263,12 +263,30 @@ input:focus{
 #alert a {
     color:darkslategray;
 }
-.onlineWindow {
+#onlineWindow {
     width: 200px;
     height: 445px;
     border: 1px solid black;
-}
 
-#onlinePresence, .onlineInfo {
-    padding: 5px;
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    margin:15px 15px;
+
+}
+#onlineWindow h5 {
+    width: 100%;
+    text-align:center;
+    padding:10px;
+    margin:0;
+}
+#onlinePresence {
+    width:100%;
+    padding: 0 10px 10px 10px;
+}
+#onlinePresence p {
+    margin:5px 0 0 0;
+    font: italic 400 12px/12px 'Montserrat', sans-serif;
 }
