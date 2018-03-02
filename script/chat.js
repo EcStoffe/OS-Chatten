@@ -17,7 +17,6 @@ firebase.auth().onAuthStateChanged(function(user) {
             status: "Online"
         });
         if(user !== null){
-            //TODO: Push user into array of objects ((DONE???))
                 let existing = document.getElementById('onlineWindow');
                 let showOnlineUsers = document.createElement('div');
                 showOnlineUsers.setAttribute('id', 'onlinePresence');
@@ -27,30 +26,23 @@ firebase.auth().onAuthStateChanged(function(user) {
                 let values = Object.values(users);
                 //console.log("users", users);
                 values.forEach(function(onlineUser) {
-                    //console.log("username", onlineUser.username+' : '+onlineUser.status);
                     if(onlineUser.status === "Online"){
                         isOnline.push({username: onlineUser.username, status: onlineUser.status});
                     }
                 });
-                    //console.log(isOnline);
                 showOnlineUsers.innerHTML = "";
-                    for(let userOnline of isOnline){
-
+                isOnline.forEach(function (displayUserOnline){
                         let usersDisplay = document.createElement('p');
-                        usersDisplay.innerText = userOnline.username;
+                        usersDisplay.innerText = displayUserOnline.username;
                         $(showOnlineUsers).append(usersDisplay);
-                        console.log(usersDisplay);
-                        console.log("isOnline array", userOnline);
-                        console.log("display username", userOnline.username);
-                    }
+                    isOnline = [];
+                });
             });
 
             $('#displayName').html(user.displayName); //display username
             $('#userSettings').on('click', showUserNav); // show user navigation
 
             $('#userControls').on('mouseleave', hideUserNav); // hide user navigation
-            //TODO: Loop array/object to display
-            //TODO: Remove users from array of objects when status update to offline
 
             function logOut(e) {
                 e.preventDefault();
