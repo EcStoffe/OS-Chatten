@@ -5,30 +5,6 @@ function theTimer() {
     let time = currentDate.toLocaleTimeString();
     let date = currentDate.toLocaleDateString();
     document.getElementsByClassName("chatTimeStamp").innerHTML += date + time;
-
-    //let currentTime = new Date().toLocaleTimeString();
-    //let date = new Date().toLocaleDateString();
-
-
-/*let year = date.getFullYear().toString();
-let month = (date.getMonth() + 1).toString();
-if(month.length < 2){
-    month = 0 + month;
-}
-let day  = date.getDate().toString();
-if(day.length < 2){
-    day = 0 + day;
-}
-let hour = date.getHours().toString();
-if(hour.length < 2){
-    hour = 0 + hour;
-}
-let minut = date.getMinutes().toString();
-if(minut.length < 2){
-    minut = 0 + minut;
-}*/
-
-//timeStamp = year + '-' + month + '-' + day + " " + hour + ':' + minut;
     
 }
 //TRIGGER SUBMIT EVENTLISTENER
