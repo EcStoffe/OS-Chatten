@@ -45,6 +45,9 @@ firebase.auth().onAuthStateChanged(function(user) {
                 mainArticle.appendChild(paragraphTwo);
                 let ParagraphTwoText = document.createTextNode(chatmessage);
                 paragraphTwo.appendChild(ParagraphTwoText);
+
+                // Scrollbar
+                document.getElementById("displayMessage").scrollTo(0, 5000);
             }
         }
     }

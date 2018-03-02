@@ -1,17 +1,12 @@
 //CREATE TIMESTAMP
-let currentDate = new Date();
-let year = currentDate.getFullYear();
-let month = currentDate.getMonth() + 1;
-month = month < 10 ? '0' + month : month;
-let day = currentDate.getDay();
-day = day < 10 ? '0' + day : day;
-let hours = currentDate.getHours();
-hours = hours < 10 ? '0' + hours : hours;
-let minutes = currentDate.getMinutes();
-minutes = minutes < 10 ? '0' + minutes : minutes;
-
-let timeStamp = `${year}-${month}-${day}, ${hours}:${minutes}`;
-
+setInterval(function(){theTimer();},1000);
+function theTimer() {
+    let currentDate = new Date();
+    let time = currentDate.toLocaleTimeString();
+    let date = currentDate.toLocaleDateString();
+    document.getElementsByClassName("chatTimeStamp").innerHTML += date + time;
+    
+}
 //TRIGGER SUBMIT EVENTLISTENER
 document.getElementById('chatControls').addEventListener('submit', sendMessage);
 //FUNCTION TO SEND MESSAGES
