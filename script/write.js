@@ -1,11 +1,16 @@
 //CREATE TIMESTAMP
 setInterval(function(){theTimer();},1000);
 function theTimer() {
-    let currentTime = new Date().toLocaleTimeString();
-    
-let date = new Date();
+    let currentDate = new Date();
+    let time = currentDate.toLocaleTimeString();
+    let date = currentDate.toLocaleDateString();
+    document.getElementsByClassName("chatTimeStamp").innerHTML += date + time;
 
-let year = date.getFullYear().toString();
+    //let currentTime = new Date().toLocaleTimeString();
+    //let date = new Date().toLocaleDateString();
+
+
+/*let year = date.getFullYear().toString();
 let month = (date.getMonth() + 1).toString();
 if(month.length < 2){
     month = 0 + month;
@@ -21,11 +26,10 @@ if(hour.length < 2){
 let minut = date.getMinutes().toString();
 if(minut.length < 2){
     minut = 0 + minut;
-}
+}*/
 
-timeStamp = year + '-' + month + '-' + day + " " + hour + ':' + minut;
-
-document.getElementsByClassName("chatTimeStamp").innerHTML += timeStamp + currentTime;
+//timeStamp = year + '-' + month + '-' + day + " " + hour + ':' + minut;
+    
 }
 //TRIGGER SUBMIT EVENTLISTENER
 document.getElementById('chatControls').addEventListener('submit', sendMessage);
