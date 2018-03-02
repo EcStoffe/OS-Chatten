@@ -17,25 +17,39 @@ firebase.auth().onAuthStateChanged(function(user) {
             status: "Online"
         });
         if(user !== null){
-            $('#displayName').html(user.displayName); //display username
-            $('#userSettings').on('click', showUserNav); // show user navigation
-            $('#userControls').on('mouseleave', hideUserNav); // hide user navigation
-
             //TODO: Push user into array of objects ((DONE???))
-            //TODO: Loop array/object to display
-            //TODO: Remove users from array of objects when status update to offline
+                let existing = document.getElementById('onlineWindow');
+                let showOnlineUsers = document.createElement('div');
+                showOnlineUsers.setAttribute('id', 'onlinePresence');
+                $(existing).append(showOnlineUsers);
             refOn.on("value", function(data) {
                 let users = data.val();
                 let values = Object.values(users);
-                console.log("users", users);
+                //console.log("users", users);
                 values.forEach(function(onlineUser) {
-                    console.log("username", onlineUser.username+' : '+onlineUser.status);
+                    //console.log("username", onlineUser.username+' : '+onlineUser.status);
                     if(onlineUser.status === "Online"){
                         isOnline.push({username: onlineUser.username, status: onlineUser.status});
                     }
-                    console.log(isOnline);
                 });
+                    //console.log(isOnline);
+                    for(let userOnline of isOnline){
+
+                        let usersDisplay = document.createElement('p');
+                        usersDisplay.innerText = userOnline.username;
+                        $(showOnlineUsers).append(usersDisplay);
+                        console.log(usersDisplay);
+                        console.log("isOnline array", userOnline);
+                        console.log("display username", userOnline.username);
+                    }
             });
+
+            $('#displayName').html(user.displayName); //display username
+            $('#userSettings').on('click', showUserNav); // show user navigation
+
+            $('#userControls').on('mouseleave', hideUserNav); // hide user navigation
+            //TODO: Loop array/object to display
+            //TODO: Remove users from array of objects when status update to offline
 
             function logOut(e) {
                 e.preventDefault();
