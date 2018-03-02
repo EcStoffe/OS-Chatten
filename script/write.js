@@ -1,10 +1,17 @@
 //CREATE TIMESTAMP
-time = function (timestamp) { // Convert UNIX epoch time into human readble time.
-    let epoch = new Date(timestamp);
-    date = epoch.toUTCString();
-    return date;
-};
+let currentDate = new Date();
+let year = currentDate.getFullYear();
+let month = currentDate.getMonth() + 1;
+let day = currentDate.getDay();
+let hours = currentDate.getHours();
+let minutes = currentDate.getMinutes();
+month = month < 10 ? '0' + month : month;
+day = day < 10 ? '0' + day : day;
+hours = hours < 10 ? '0' + hours : hours;
+minutes = minutes < 10 ? '0' + minutes : minutes;
 
+
+let timeStamp = `${year}-${month}-${day}, ${hours}:${minutes}`;
 
 //TRIGGER SUBMIT EVENTLISTENER
 document.getElementById('chatControls').addEventListener('submit', sendMessage);
@@ -12,24 +19,23 @@ document.getElementById('chatControls').addEventListener('submit', sendMessage);
 function sendMessage(e) {
     e.preventDefault();
     let chatText = document.getElementById('message').value;
-    let time = Firebase.Server.TIMESTAMP;
     console.log(chatText);
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // Sign in
             console.log(myUserName);
-            saveMessage(myUserName, chatText, time);
+            saveMessage(myUserName, chatText, timeStamp);
             // Clear form
             document.getElementById('chatControls').reset();
         }
     });
 }
 
-function saveMessage(myUserName, chatText, time){
+function saveMessage(myUserName, chatText, timeStamp){
     let newMessageRef = {
         username: myUserName,
         chattext: chatText,
-        timestamp: time // t ska in här
+        timestamp: timeStamp
     };
 
     firebase.database().ref("chatMessage/").push(newMessageRef)
