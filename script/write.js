@@ -14,7 +14,6 @@ document.getElementById('chatControls').addEventListener('submit', sendMessage);
 function sendMessage(e) {
     e.preventDefault();
     let chatText = document.getElementById('message').value;
-    console.log(chatText);
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // Sign in
