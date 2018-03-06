@@ -1,32 +1,33 @@
+// Function to display or hide user navigation
 function showUserNav(e) {
     e.preventDefault();
-    document.getElementById('userControls').style.display = 'block';
+    $('#userControls').show();
 }
-//FUNCTION TO HIDE USER NAV
 function hideUserNav(e) {
     e.preventDefault();
-    document.getElementById('userControls').style.display = 'none';
+    $('#userControls').hide();
 }
-//FUNCTION TO LOGIN AND ACCESS CHAT
-function acessChat(e) {
-    e.preventDefault();
 
-    const email = useremail.value;
-    const pass = password.value;
-    const auth = firebase.auth();
-
-    firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
-        // Handle Errors here.
-        let errorCode = error.code;
-        let errorMessage = error.message;
-
-        window.alert('Error : ' + errorMessage + '<br>' + errorCode);
-
-        // ...
+// Function to display users that are online.
+function showOnlineUsers(){
+    let existing = $('#onlineWindow');
+    let showOnlineUsers = document.createElement('div');
+    showOnlineUsers.setAttribute('id', 'onlinePresence');
+    $(existing).append(showOnlineUsers);
+    refUsersOnline.on("value", function(data) {
+        let users = data.val();
+        let values = Object.values(users);
+        values.forEach(function(onlineUser) {
+            if(onlineUser.status === "Online"){
+                usersOnline.push({username: onlineUser.username, status: onlineUser.status});
+            }
+        });
+        showOnlineUsers.innerHTML = "";
+        usersOnline.forEach(function (displayUserOnline){
+            let usersDisplay = document.createElement('p');
+            usersDisplay.innerText = displayUserOnline.username;
+            $(showOnlineUsers).append(usersDisplay);
+            usersOnline = [];
+        });
     });
-} //LOGIN FUNCTION ENDS
-// SEND AN ERROR IF LOGIN FAILED
-function errorData(err){
-    console.log('Error!');
-    console.log(err)
 }
