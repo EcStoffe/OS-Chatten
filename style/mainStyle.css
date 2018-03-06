@@ -1,3 +1,8 @@
+/**************************************************************
+
+            GENERAL MAIN STYLE
+
+**************************************************************/
 * { box-sizing: border-box; }
 body, head, main, section, article, aside, div {
     margin:0;
@@ -10,91 +15,17 @@ body {
     align-items: center;
     height:100vh;
 }
-#fixedNav {
-    width:100%;
+/**************************************************************
 
-    position:fixed;
-    top:0;
-    right:0;
+            INDEX & REGISTRATION PAGE MAIN STYLE
 
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-#fixedNav h3 {
-    width:70%;
-    margin-top:0;
-    margin-bottom:0;
-    margin-left:auto;
-    padding:0 25px;
-
-    display:flex;
-
-    font: normal 400 23px/23px 'Montserrat', sans-serif;
-}
-#fixedNav #dbUserName {
-    width:30%;
-    padding:25px 25px;
-
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    font: normal 200 14px/14px 'Montserrat', sans-serif;
-    color:black;
-    background:gainsboro;
-}
-#exitChat {
-    font-size:11px;
-    color:red;
-    cursor:pointer;
-}
-#displayName { margin-right:auto; }
-#fixedNav #dbUserName .icon { margin-right:10px; }
-#fixedNav #dbUserName .icon:last-of-type { color: darkslategray; cursor:pointer; }
-#userControls {
-    width:250px;
-    height:auto;
-    padding:10px 10px;
-
-    display:none;
-
-    position:fixed;
-    top:63px;
-    right:0;
-
-    font: normal 400 12px/12px 'Montserrat', sans-serif;
-    background:gainsboro;
-}
-#userControls > div {
-    width:100%;
-    height:auto;
-
+**************************************************************/
+#regUser, #loginControl { width:400px; }
+#loginNeeded, #newUser {
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
-}
-#userControls > div p {
-    width:100%;
-    margin:0 0 5px 0;
-    padding:2px 0 2px 5px;
-    text-transform: lowercase;
-    border-left:3px solid darkslategray;
-}
-#userControls > div p:last-of-type {
-    margin:0;
-}
-#regUser, #loginControl {
-    width:400px;
-}
-#loginNeeded, #newUser {
-     display:flex;
-     flex-direction: column;
-     justify-content: flex-start;
-     align-items: center;
+    align-items: center;
 }
 #loginNeeded h3, #regUser section h3 {
     text-align: center;
@@ -144,9 +75,6 @@ body {
     font: normal 400 12px/12px 'Montserrat', sans-serif;
     text-transform: lowercase;
 }
-#newUser label span {
-    width:40%;
-}
 #loginNeeded form label input, #newUser label input {
     width:70%;
     padding:1rem;
@@ -159,15 +87,48 @@ body {
     border:none;
     font: normal 400 12px/12px 'Montserrat', sans-serif;
 }
+/**************************************************************
+
+            REGISTRATION PAGE MAIN STYLE
+
+**************************************************************/
+#alert {
+    width:100%;
+    padding:10px 10px;
+
+    background: mediumspringgreen;
+    color:darkslategray;
+
+    display:none;
+    text-align: center;
+    font: normal 200 11px/11px 'Montserrat', sans-serif;
+}
+#alert a {
+    color:darkslategray;
+}
+#newUser label span {
+    width:40%;
+}
 #newUser label input {
     width:60%;
 }
+
+/**************************************************************
+
+            INDEX PAGE MAIN STYLE
+
+**************************************************************/
 #loginNeeded > div {
     padding:1rem;
     font: normal 200 11px/11px 'Montserrat', sans-serif;
     text-transform: lowercase;
     color: darkslategray;
 }
+/**************************************************************
+
+            CHAT PAGE MAIN STYLE
+
+**************************************************************/
 #chatDirectory {
     width:100%;
     height:100%;
@@ -175,6 +136,83 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+#fixedNav {
+    width:100%;
+
+    position:fixed;
+    top:0;
+    right:0;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#fixedNav h3 {
+    width:70%;
+    margin-top:0;
+    margin-bottom:0;
+    margin-left:auto;
+    padding:0 25px;
+
+    display:flex;
+
+    font: normal 400 23px/23px 'Montserrat', sans-serif;
+}
+#fixedNav #dbUserName {
+    width:30%;
+    padding:25px 25px;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    font: normal 200 14px/14px 'Montserrat', sans-serif;
+    color:black;
+    background:gainsboro;
+}
+#fixedNav #dbUserName .icon { margin-right:10px; }
+#fixedNav #dbUserName .icon:last-of-type { color: darkslategray; cursor:pointer; }
+#displayName { margin-right:auto; }
+#exitChat {
+    font-size:11px;
+    color:red;
+    cursor:pointer;
+}
+#userControls {
+    width:250px;
+    height:auto;
+    padding:10px 10px;
+
+    display:none;
+
+    position:fixed;
+    top:63px;
+    right:0;
+
+    font: normal 400 12px/12px 'Montserrat', sans-serif;
+    background:gainsboro;
+}
+#userControls > div {
+    width:100%;
+    height:auto;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+#userControls > div p {
+    width:100%;
+    margin:0 0 5px 0;
+    padding:2px 0 2px 5px;
+    text-transform: lowercase;
+    border-left:3px solid darkslategray;
+}
+#userControls > div p:last-of-type {
+    margin:0;
 }
 #generalChat {
     width:70%;
@@ -192,10 +230,16 @@ body {
     margin-top:15px;
 
 }
+#displayMessage {
+    margin:10px 10px;
+    padding:5px 5px;
+    max-height:440px;
+    overflow:auto;
+    width:100%;
+}
 .form-group {
     margin-bottom:0;
 }
-
 .chatContent {
     width:100%;
     padding: 7px 7px;
@@ -243,26 +287,6 @@ input:focus{
     outline: none!important;
     box-shadow: none!important;
 }
-#displayMessage {
-    margin:10px 10px;
-    padding:5px 5px;
-    max-height:440px;
-    overflow:auto;
-}
-#alert {
-    width:100%;
-    padding:10px 10px;
-
-    background: mediumspringgreen;
-    color:darkslategray;
-
-    display:none;
-    text-align: center;
-    font: normal 200 11px/11px 'Montserrat', sans-serif;
-}
-#alert a {
-    color:darkslategray;
-}
 #onlineWindow {
     width: 200px;
     height: 445px;
@@ -274,7 +298,6 @@ input:focus{
     align-items: flex-start;
 
     margin:15px 15px;
-
 }
 #onlineWindow h5 {
     width: 100%;

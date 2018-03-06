@@ -1,32 +1,75 @@
-function showUserNav(e) {
-    e.preventDefault();
-    document.getElementById('userControls').style.display = 'block';
+// Functions to save user details for registration
+function saveInputs(username, fullname, email, password){
+    firebase.database().ref('users/' + username).set({
+        username: username,
+        name: fullname,
+        email: email,
+        password: password,
+        status: "Online"
+    });
 }
-//FUNCTION TO HIDE USER NAV
-function hideUserNav(e) {
+function regForm(e) {
     e.preventDefault();
-    document.getElementById('userControls').style.display = 'none';
+    let username = $('#newUserName').val();
+    let fullname = $('#newUserFullName').val();
+    let email = $('#newUserEmail').val();
+    let password = $('#newUserPass').val();
+    const promise = firebase.auth().createUserWithEmailAndPassword(email, password);
+    promise.catch(e => alert("Error: "+e.message));
+    firebase.auth().onAuthStateChanged(user => {
+        if(user) {
+            saveInputs(username, fullname, email, password);
+            if(user !== null) {
+                user.updateProfile({ displayName: username })
+                    .then(function() { window.location="chat.html"; })
+                    .catch(function() { }); //...
+            }
+        }
+    });
 }
-//FUNCTION TO LOGIN AND ACCESS CHAT
-function acessChat(e) {
+// Function to login users
+function enterChat(e) {
     e.preventDefault();
-
-    const email = useremail.value;
-    const pass = password.value;
-    const auth = firebase.auth();
-
-    firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
+    const useremail = $('#userEmail').val();
+    const password = $('#userPass').val();
+    firebase.auth().signInWithEmailAndPassword(useremail, password).catch(function(error) {
         // Handle Errors here.
         let errorCode = error.code;
         let errorMessage = error.message;
 
-        window.alert('Error : ' + errorMessage + '<br>' + errorCode);
-
-        // ...
+        window.alert('Error : ' + errorMessage + '\n' + errorCode);
     });
-} //LOGIN FUNCTION ENDS
-// SEND AN ERROR IF LOGIN FAILED
-function errorData(err){
-    console.log('Error!');
-    console.log(err)
+}
+// Function to display or hide user navigation
+function showUserNav(e) {
+    e.preventDefault();
+    $('#userControls').show();
+}
+function hideUserNav(e) {
+    e.preventDefault();
+    $('#userControls').hide();
+}
+
+// Function to display users that are online.
+function showOnlineUsers(){
+    let existing = $('#onlineWindow');
+    let showOnlineUsers = document.createElement('div');
+    showOnlineUsers.setAttribute('id', 'onlinePresence');
+    $(existing).append(showOnlineUsers);
+    refUsersOnline.on("value", function(data) {
+        let users = data.val();
+        let values = Object.values(users);
+        values.forEach(function(onlineUser) {
+            if(onlineUser.status === "Online"){
+                usersOnline.push({username: onlineUser.username, status: onlineUser.status});
+            }
+        });
+        showOnlineUsers.innerHTML = "";
+        usersOnline.forEach(function (displayUserOnline){
+            let usersDisplay = document.createElement('p');
+            usersDisplay.innerText = displayUserOnline.username;
+            $(showOnlineUsers).append(usersDisplay);
+            usersOnline = [];
+        });
+    });
 }
