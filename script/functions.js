@@ -49,7 +49,6 @@ function hideUserNav(e) {
     e.preventDefault();
     $('#userControls').hide();
 }
-
 // Function to display users that are online.
 function showOnlineUsers(){
     let existing = $('#onlineWindow');
