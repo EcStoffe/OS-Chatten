@@ -4,6 +4,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         //console.log(myUserName);
         let messageref = firebase.database().ref('chatMessage/');
         messageref.on('value', getMessage);
+        let existingID = document.getElementById('displayMessage');
         function getMessage(data){
 
             let messageList = document.querySelectorAll('.chatContent');
