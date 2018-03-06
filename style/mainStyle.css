@@ -235,6 +235,7 @@ body {
     padding:5px 5px;
     max-height:440px;
     overflow:auto;
+    width:100%;
 }
 .form-group {
     margin-bottom:0;
@@ -297,7 +298,6 @@ input:focus{
     align-items: flex-start;
 
     margin:15px 15px;
-
 }
 #onlineWindow h5 {
     width: 100%;
