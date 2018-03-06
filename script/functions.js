@@ -1,3 +1,32 @@
+// Functions to save user details for registration
+function saveInputs(username, fullname, email, password){
+    firebase.database().ref('users/' + username).set({
+        username: username,
+        name: fullname,
+        email: email,
+        password: password,
+        status: "Online"
+    });
+}
+function regForm(e) {
+    e.preventDefault();
+    let username = $('#newUserName').val();
+    let fullname = $('#newUserFullName').val();
+    let email = $('#newUserEmail').val();
+    let password = $('#newUserPass').val();
+    const promise = firebase.auth().createUserWithEmailAndPassword(email, password);
+    promise.catch(e => alert("Error: "+e.message));
+    firebase.auth().onAuthStateChanged(user => {
+        if(user) {
+            saveInputs(username, fullname, email, password);
+            if(user !== null) {
+                user.updateProfile({ displayName: username })
+                    .then(function() { window.location="chat.html"; })
+                    .catch(function() { }); //...
+            }
+        }
+    });
+}
 // Function to login users
 function enterChat(e) {
     e.preventDefault();
