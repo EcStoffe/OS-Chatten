@@ -1,3 +1,16 @@
+// Function to login users
+function enterChat(e) {
+    e.preventDefault();
+    const useremail = $('#userEmail').val();
+    const password = $('#userPass').val();
+    firebase.auth().signInWithEmailAndPassword(useremail, password).catch(function(error) {
+        // Handle Errors here.
+        let errorCode = error.code;
+        let errorMessage = error.message;
+
+        window.alert('Error : ' + errorMessage + '\n' + errorCode);
+    });
+}
 // Function to display or hide user navigation
 function showUserNav(e) {
     e.preventDefault();
