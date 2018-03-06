@@ -18,14 +18,13 @@ firebase.auth().onAuthStateChanged(function(user) {
             //UNCOMMENT THIS TO CONSOLE LOG THE WHOLE USER ARRAY console.log(keys);
 
             //LOOPS ALL OBJECTS TO RETRIEVE KEY VALUES.
+
             for(let i = 0; i < keys.length; i++){
                 let m = keys[i];
                 let author = chatMessage[m].username;
                 let chatmessage = chatMessage[m].chattext;
                 let timeStamped = chatMessage[m].timestamp;
 
-
-                let existingID = document.getElementById('displayMessage');
                 let mainArticle = document.createElement('article');
                 mainArticle.setAttribute('class', 'chatContent');
                 existingID.appendChild(mainArticle);
