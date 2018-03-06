@@ -3,8 +3,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         let messageref = firebase.database().ref('chatMessage/');
         let existingID = document.getElementById('displayMessage');
-
-            messageref.on("value", function(data) {
+        messageref.on("value", function(data) {
                 let messagesObj = data.val();
                 let messages = Object.values(messagesObj);
                 existingID.innerHTML = "";
@@ -13,7 +12,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                     let author = message.username;
                     let chatmessage = message.chattext;
                     let timeStamped = message.timestamp;
-
+                  
                     let mainArticle = document.createElement('article');
                     mainArticle.setAttribute('class', 'chatContent');
                     existingID.appendChild(mainArticle);
@@ -38,6 +37,5 @@ firebase.auth().onAuthStateChanged(function(user) {
                 });
                 document.getElementById("displayMessage").scrollTo(0, 5000);
             });
-
     }
 });
