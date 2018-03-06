@@ -2,8 +2,15 @@
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         //console.log(myUserName);
-        let messageref = firebase.database().ref('chatMessage/');
-        messageref.on('value', getMessage);
+        let roomOneref = firebase.database().ref('roomOneMessage/');
+        roomOneref.on('value', getMessage);
+
+        let roomTworef = firebase.database().ref('roomTwoMessage/');
+        roomTworef.on('value', getMessage);
+
+        let generalref = firebase.database().ref('generalMessage/');
+        generalref.on('value', getMessage);
+
         function getMessage(data){
 
             let messageList = document.querySelectorAll('.chatContent');
@@ -12,19 +19,20 @@ firebase.auth().onAuthStateChanged(function(user) {
             }
 
             // TARGET DATA KEYS & VALUES
-            let chatMessage = data.val();
-            let keys = Object.keys(chatMessage);
+            let generalMessage = data.val();
+            let keys = Object.keys(generalMessage);
+
             //UNCOMMENT THIS TO CONSOLE LOG THE WHOLE USER ARRAY console.log(keys);
 
             //LOOPS ALL OBJECTS TO RETRIEVE KEY VALUES.
             for(let i = 0; i < keys.length; i++){
                 let m = keys[i];
-                let author = chatMessage[m].username;
-                let chatmessage = chatMessage[m].chattext;
-                let timeStamped = chatMessage[m].timestamp;
+                let author = generalMessage[m].username;
+                let chatmessage = generalMessage[m].chattext;
+                let timeStamped = generalMessage[m].timestamp;
 
 
-                let existingID = document.getElementById('displayMessage');
+                let existingID = document.getElementById('displayMessageGeneral');
                 let mainArticle = document.createElement('article');
                 mainArticle.setAttribute('class', 'chatContent');
                 existingID.appendChild(mainArticle);
@@ -47,7 +55,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                 paragraphTwo.appendChild(ParagraphTwoText);
 
                 // Scrollbar
-                document.getElementById("displayMessage").scrollTo(0, 5000);
+                document.getElementById("displayMessageGeneral").scrollTo(0, 5000);
             }
         }
     }

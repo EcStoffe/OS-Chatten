@@ -1,32 +1,24 @@
-function showUserNav(e) {
-    e.preventDefault();
-    document.getElementById('userControls').style.display = 'block';
-}
-//FUNCTION TO HIDE USER NAV
-function hideUserNav(e) {
-    e.preventDefault();
-    document.getElementById('userControls').style.display = 'none';
-}
-//FUNCTION TO LOGIN AND ACCESS CHAT
-function acessChat(e) {
-    e.preventDefault();
-
-    const email = useremail.value;
-    const pass = password.value;
-    const auth = firebase.auth();
-
-    firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
-        // Handle Errors here.
-        let errorCode = error.code;
-        let errorMessage = error.message;
-
-        window.alert('Error : ' + errorMessage + '<br>' + errorCode);
-
-        // ...
+/*$(function () {
+    $('.chatRoomButtons').click(function ()  {
+        $(".chatRoomDisplay").css('display', 'hidden');
+        $('#displayMessage'+$(this).attr('target')).css('display', 'block');
+        $(this).toggleClass('boldar');
     });
-} //LOGIN FUNCTION ENDS
-// SEND AN ERROR IF LOGIN FAILED
-function errorData(err){
-    console.log('Error!');
-    console.log(err)
-}
+});*/
+
+$('#chatOne').click(function () {
+   $('#displayMessageGeneral').css('display', 'block');
+    $('#displayMessageRoomOne').css('display', 'none');
+    $('#displayMessageRoomTwo').css('display', 'none');
+});
+
+$('#chatTwo').click(function () {
+    $('#displayMessageGeneral').css('display', 'none');
+    $('#displayMessageRoomOne').css('display', 'block');
+    $('#displayMessageRoomTwo').css('display', 'none');
+});
+$('#chatThree').click(function () {
+    $('#displayMessageGeneral').css('display', 'none');
+    $('#displayMessageRoomOne').css('display', 'none');
+    $('#displayMessageRoomTwo').css('display', 'block');
+});

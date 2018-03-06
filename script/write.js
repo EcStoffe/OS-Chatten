@@ -14,7 +14,6 @@ document.getElementById('chatControls').addEventListener('submit', sendMessage);
 function sendMessage(e) {
     e.preventDefault();
     let chatText = document.getElementById('message').value;
-    console.log(chatText);
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // Sign in
@@ -32,5 +31,7 @@ function saveMessage(myUserName, chatText, timeStamp){
         timestamp: timeStamp
     };
 
-    firebase.database().ref("chatMessage/").push(newMessageRef)
+    firebase.database().ref("generalMessage/").push(newMessageRef)
+    firebase.database().ref("roomOneMessage/").push(newMessageRef)
+    firebase.database().ref("roomTwoMessage/").push(newMessageRef)
 }

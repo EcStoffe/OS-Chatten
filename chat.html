@@ -29,11 +29,22 @@
         </section>
     </section>
     <!-- CHAT APPLICATION -->
+    <section id="chatLinks">
+        <a id="chatOne" class="chatRoomButtons" target="General">#General</a>
+        <a id="chatTwo" class="chatRoomButtons" target="RoomOne">#room1</a>
+        <a id="chatThree" class="chatRoomButtons" target="RoomTwo">#room2</a>
+    </section>
     <section id="generalChat">
-        <form id="chatControls">
-            <section id="displayMessage">
+        <section id="displayMessageGeneral" class="chatRoomDisplay"> <!-- ÄNDRA NAMN PÅ ID, CSS OCH JAVSCRIPT -->
 
-            </section>
+        </section>
+        <section id="displayMessageRoomOne" class="chatRoomDisplay">
+
+        </section>
+        <section id="displayMessageRoomTwo" class="chatRoomDisplay">
+
+        </section>
+        <form id="chatControls">
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="far fa-smile"></i></span>
@@ -58,6 +69,7 @@
 <script type="text/javascript" src="script/chat.js"></script>
 <script type="text/javascript" src="script/write.js"></script>
 <script type="text/javascript" src="script/read.js"></script>
+<script type="text/javascript" src="script/functions.js"></script>
 <script src="script/bootstrap/bootstrap.min.js"></script>
 </body>
 </html>

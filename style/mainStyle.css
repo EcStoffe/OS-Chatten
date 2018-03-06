@@ -243,11 +243,12 @@ input:focus{
     outline: none!important;
     box-shadow: none!important;
 }
-#displayMessage {
+#displayMessageGeneral, #displayMessageRoomOne, #displayMessageRoomTwo {
     margin:10px 10px;
     padding:5px 5px;
     max-height:440px;
     overflow:auto;
+    width: 100%;
 }
 #alert {
     width:100%;
@@ -289,4 +290,17 @@ input:focus{
 #onlinePresence p {
     margin:5px 0 0 0;
     font: italic 400 12px/12px 'Montserrat', sans-serif;
+}
+
+#chatLinks {
+    display: flex;
+    flex-direction: column;
+}
+
+.boldar {
+    font-weight: bold;
+}
+
+#displayMessageRoomTwo, #displayMessageRoomOne {
+    display: none;
 }
