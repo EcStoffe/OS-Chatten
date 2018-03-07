@@ -66,9 +66,83 @@ function showOnlineUsers(){
         showOnlineUsers.innerHTML = "";
         usersOnline.forEach(function (displayUserOnline){
             let usersDisplay = document.createElement('p');
-            usersDisplay.innerText = displayUserOnline.username;
+            usersDisplay.innerHTML = '<i class="fas fa-circle"></i> '+displayUserOnline.username;
             $(showOnlineUsers).append(usersDisplay);
             usersOnline = [];
         });
     });
+}
+
+function chatDisplayMessage(){
+    firebaseref.on("value", function(data) {
+        let messagesObj = data.val();
+        let messages = Object.values(messagesObj);
+        existingID.innerHTML = "";
+
+        messages.forEach(function(message) {
+            let author = message.username;
+            let chatmessage = message.chattext;
+            let timeStamped = message.timestamp;
+
+            let mainArticle = document.createElement('article');
+            mainArticle.setAttribute('class', 'chatContent');
+            existingID.appendChild(mainArticle);
+            let paragraphOne = document.createElement('p');
+            mainArticle.appendChild(paragraphOne);
+            let spanOne = document.createElement('span');
+            spanOne.setAttribute('class', 'chatUserName');
+            paragraphOne.appendChild(spanOne);
+            let spanOneText = document.createTextNode(author);
+            spanOne.appendChild(spanOneText);
+            let spanTwo = document.createElement('span');
+            spanTwo.setAttribute('class', 'chatTimeStamp');
+            paragraphOne.appendChild(spanTwo);
+            let spanTwoText = document.createTextNode(timeStamped);
+            spanTwo.appendChild(spanTwoText);
+            let paragraphTwo = document.createElement('p');
+            paragraphTwo.setAttribute('class', 'chatMessage');
+            mainArticle.appendChild(paragraphTwo);
+            let ParagraphTwoText = document.createTextNode(chatmessage);
+            paragraphTwo.appendChild(ParagraphTwoText);
+        });
+        document.querySelector('#mainChat > section:first-of-type').scrollTo(0, 5000);
+    });
+}
+function formContent(){
+    return `<form><div class="form-group input-group">
+                    <div class="input-group-prepend btn-outline-secondary">
+                        <span class="input-group-text"><i class="far fa-smile"></i></span>
+                    </div>
+                    <input class="form-control" type="text" id="message" placeholder="Skriv meddelande">
+                    <div id="buttonHome" class="input-group-append">
+                        <button type="submit" class="btn btn-outline-secondary"><i class="fas fa-sign-in-alt"></i></button>
+                    </div>
+                </div>
+            </form>`
+}
+function theTimer() {
+    let currentDate = new Date();
+    let time = currentDate.toLocaleTimeString();
+    let date = currentDate.toLocaleDateString();
+    document.getElementsByClassName("chatTimeStamp").innerHTML += timeStamp = date+' '+time;
+}
+
+//FUNCTION TO SEND MESSAGES
+function sendMessageChat(e) {
+    e.preventDefault();
+    let chatText = document.getElementById('message').value;
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            sendMessages(myUserName, chatText, timeStamp);
+            document.querySelector('form').reset();
+        }
+    });
+}
+function sendMessages(myUserName, chatText, timeStamp){
+    let newMessageRef = {
+        username: myUserName,
+        chattext: chatText,
+        timestamp: timeStamp
+    };
+    firebaseref.push(newMessageRef)
 }
