@@ -21,7 +21,11 @@ function regForm(e) {
             saveInputs(username, fullname, email, password);
             user.updateProfile({ displayName: username })
             .then(function() { window.location="chat.html"; })
-            .catch(function() { }); //...
+            .catch(function() {
+                if(user.displayName === null) {
+                    user.updateProfile({ displayName: username })
+                }
+            }); //...
         }
     });
 }
