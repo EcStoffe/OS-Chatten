@@ -19,11 +19,9 @@ function regForm(e) {
     firebase.auth().onAuthStateChanged(user => {
         if(user) {
             saveInputs(username, fullname, email, password);
-            if(user !== null) {
-                user.updateProfile({ displayName: username })
-                    .then(function() { window.location="chat.html"; })
-                    .catch(function() { }); //...
-            }
+            user.updateProfile({ displayName: username })
+            .then(function() { window.location="chat.html"; })
+            .catch(function() { }); //...
         }
     });
 }
