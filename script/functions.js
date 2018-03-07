@@ -74,7 +74,7 @@ function showOnlineUsers(){
 }
 
 function chatDisplayMessage(){
-    messageref.on("value", function(data) {
+    firebaseref.on("value", function(data) {
         let messagesObj = data.val();
         let messages = Object.values(messagesObj);
         existingID.innerHTML = "";
@@ -108,4 +108,44 @@ function chatDisplayMessage(){
         });
         document.querySelector('#mainChat > section:first-of-type').scrollTo(0, 5000);
     });
+}
+function formContent(){
+    return `<form><div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="far fa-smile"></i></span>
+                    </div>
+                    <input class="form-control" type="text" id="message" placeholder="Skriv meddelande">
+                    <div id="buttonHome" class="input-group-append">
+                        <button type="submit" class="btn btn-outline-secondary"><i class="fas fa-sign-in-alt"></i></button>
+                    </div>
+                </div>
+            </form>`
+}
+function theTimer() {
+    let currentDate = new Date();
+    let time = currentDate.toLocaleTimeString();
+    let date = currentDate.toLocaleDateString();
+    document.getElementsByClassName("chatTimeStamp").innerHTML += date + time;
+
+    timeStamp = date+' '+time;
+}
+
+//FUNCTION TO SEND MESSAGES
+function sendMessageChat(e) {
+    e.preventDefault();
+    let chatText = document.getElementById('message').value;
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            sendMessages(myUserName, chatText, timeStamp);
+            document.querySelector('form').reset();
+        }
+    });
+}
+function sendMessages(myUserName, chatText, timeStamp){
+    let newMessageRef = {
+        username: myUserName,
+        chattext: chatText,
+        timestamp: timeStamp
+    };
+    firebaseref.push(newMessageRef)
 }
