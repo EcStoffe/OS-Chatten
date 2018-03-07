@@ -14,7 +14,22 @@ body {
     justify-content: center;
     align-items: center;
     height:100vh;
+    background-image:url('../images/landingpage.png');
+    background-size: cover;
 }
+::-webkit-scrollbar {
+    background:transparent;
+    width:10px;
+}
+::-webkit-scrollbar-track {
+    background:gainsboro;
+    border-radius:0 5px 0 0;
+}
+::-webkit-scrollbar-track-piece { background:transparent; }
+::-webkit-scrollbar-thumb {
+    background:darkslategray;
+}
+::-webkit-scrollbar-corner { background:transparent; }
 /**************************************************************
 
             INDEX & REGISTRATION PAGE MAIN STYLE
@@ -112,17 +127,37 @@ body {
 #newUser label input {
     width:60%;
 }
+#regUser section:first-of-type {
+    background:rgba(255,255,255,.6);
+    padding:25px;
+    border-radius:5px;
+}
+#regUser section:first-of-type h3 {
+    margin:0 0 15px 0;
+}
 
 /**************************************************************
 
             INDEX PAGE MAIN STYLE
 
 **************************************************************/
+#loginNeeded {
+    background:rgba(255,255,255,.6);
+    border-radius:5px;
+    padding:20px 20px;
+}
+#loginNeeded h3 {
+    margin:0 0 10px 0;
+}
 #loginNeeded > div {
     padding:1rem;
-    font: normal 200 11px/11px 'Montserrat', sans-serif;
+    font: normal 600 13px/13px 'Montserrat', sans-serif;
     text-transform: lowercase;
     color: darkslategray;
+}
+#loginNeeded > div a {
+    color: darkslategray;
+    text-decoration: none;
 }
 /**************************************************************
 
@@ -130,12 +165,12 @@ body {
 
 **************************************************************/
 #chatDirectory {
-    width:100%;
-    height:100%;
+    width:70%;
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top:4%;
 }
 #fixedNav {
     width:100%;
@@ -148,6 +183,8 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    background:rgba(255,255,255,.6);
 }
 #fixedNav h3 {
     width:70%;
@@ -159,8 +196,9 @@ body {
     display:flex;
 
     font: normal 400 23px/23px 'Montserrat', sans-serif;
+    color:white;
 }
-#fixedNav #dbUserName {
+#dbUserName {
     width:30%;
     padding:25px 25px;
 
@@ -170,15 +208,15 @@ body {
     align-items: center;
 
     font: normal 200 14px/14px 'Montserrat', sans-serif;
-    color:black;
-    background:gainsboro;
+    color:gainsboro;
+    background:darkslategray;
 }
 #fixedNav #dbUserName .icon { margin-right:10px; }
-#fixedNav #dbUserName .icon:last-of-type { color: darkslategray; cursor:pointer; }
+#fixedNav #dbUserName .icon:last-of-type { color: gainsboro; cursor:pointer; }
 #displayName { margin-right:auto; }
 #exitChat {
-    font-size:11px;
-    color:red;
+    font: normal 400 12px/12px 'Montserrat', sans-serif;
+    color:#E7BE3D;
     cursor:pointer;
 }
 #userControls {
@@ -214,40 +252,79 @@ body {
 #userControls > div p:last-of-type {
     margin:0;
 }
+#chatContainer {
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 #mainChat {
     width:70%;
-    margin-left:20px;
     height:500px;
+
     display:flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
 
+    background:rgba(255,255,255,.6);
+    border-radius:5px;
 }
 #chatRooms {
-    width:200px;
-    padding:5px 5px;
+    width:100%;
 
     display:flex;
-    flex-direction: column;
-}#chatRooms button {
+    flex-direction: row;
+    margin:auto;
+}
+#chatRooms button {
     width:100%;
-    margin:5px 5px;
+    margin:5px 15px 5px 0;
+    padding:1rem;
 
     text-align: center;
+    text-transform: uppercase;
+    align-self:flex-start;
+
+    border-radius: 5px;
+    border:none;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
-#chatControls {
+#chatRooms button:last-of-type {
+    margin:5px 0 5px 0;
+}
+#chatRooms button:hover {
+    background:darkslategray;
+    color:gainsboro;
+
+}
+#chatRooms button:focus{
+    outline: none!important;
+    box-shadow: none!important;
+    background:darkslategray;
+    color:gainsboro;
+
+}
+#mainChat form {
     width:100%;
     height:auto;
     padding:0;
-    margin-top:15px;
 
 }
+#mainChat form button {
+    background:gainsboro;
+}
 #mainChat > section:first-of-type {
-    margin:10px 10px;
-    padding:5px 5px;
-    max-height:440px;
-    overflow:auto;
+    padding:10px 10px 20px 10px;
+    max-height:100%;
+    overflow-y:auto;
+    overflow-x:hidden;
     width:100%;
 }
 .form-group {
@@ -293,36 +370,67 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-content: flex-start;
+    width:100%;
+    height:auto;
+    word-wrap: break-word;
 
     font-size:13px;
+    text-align:justify;
+}
+#welcome {
+    align-self:flex-start;
+    height:100%;
+    padding:20px;
 }
 input:focus{
     outline: none!important;
     box-shadow: none!important;
 }
 #onlineWindow {
-    width: 200px;
-    height: 445px;
-    border: 1px solid black;
+    width: 30%;
+    height: 500px;
+    background:rgba(255,255,255,.6);
+    border-radius:5px;
 
     display:flex;
     flex-direction:column;
     justify-content: flex-start;
     align-items: flex-start;
 
-    margin:15px 15px;
+    margin:15px 0 15px 15px;
 }
 #onlineWindow h5 {
     width: 100%;
     text-align:center;
     padding:10px;
     margin:0;
+    color:darkslategray;
 }
 #onlinePresence {
     width:100%;
     padding: 0 10px 10px 10px;
 }
 #onlinePresence p {
-    margin:5px 0 0 0;
-    font: italic 400 12px/12px 'Montserrat', sans-serif;
+    margin:10px 0 0 0;
+    padding:0 0 0 15px;
+    font: normal 400 12px/12px 'Montserrat', sans-serif;
+    color:darkslategray;
+}
+#onlinePresence .fa-circle {
+    margin-right:10px;
+    font-size: 9px;
+    color:seagreen;
+}
+.input-group-text{
+    border-color:#6C757D;
+    color:#6C757D;
+    border-radius:0;
+    background:gainsboro;
+}
+#mainChat .form-control {
+    border:1px solid #6C757D;
+    background:gainsboro;
+}
+#mainChat .btn {
+    border-radius:0;
 }

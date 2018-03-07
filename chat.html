@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>OS-Chatten</title>
+    <title>Travelling chat</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="style/bootstrap.min.css">
@@ -12,7 +12,7 @@
 <main id="chatDirectory">
     <section id="userWelcome">
         <section id="fixedNav">
-            <h3>OS-Chatten</h3>
+            <h3>The great adventure</h3>
 
             <div id="dbUserName">
                 <i class="fas fa-user icon"></i>
@@ -30,27 +30,21 @@
     </section>
     <!-- CHAT APPLICATION -->
     <section id="chatRooms">
-        <button id="chatRoom-One">Chat Room 1</button>
-        <button id="chatRoom-Two">Chat Room 2</button>
-        <button id="chatRoom-Three">Chat Room 3</button>
+        <button id="chatRoom-One">Sun travels <i class="fas fa-sun"></i></button>
+        <button id="chatRoom-Two">Winter travels <i class="fas fa-snowflake"></i></button>
+        <button id="chatRoom-Three">Weekends <i class="fas fa-building"></i></button>
     </section>
-    <section id="mainChat">
-        <!--<section id="displayMessage"></section>
-        <form id="chatControls">
-            <div class="form-group input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="far fa-smile"></i></span>
-                </div>
-                <input class="form-control" type="text" id="message" placeholder="Skriv meddelande">
-                <div id="buttonHome" class="input-group-append">
-                    <button type="submit" class="btn btn-outline-secondary"><i class="fas fa-sign-in-alt"></i></button>
-                </div>
-            </div>
-        </form>-->
+    <section id="chatContainer">
+        <section id="mainChat">
+        <span id="welcome">
+            Text here
+        </span>
+        </section>
+        <section id="onlineWindow">
+            <h5>Online</h5>
+        </section>
     </section>
-    <section id="onlineWindow">
-        <h5>Online</h5>
-    </section>
+
 </main>
 
 
@@ -59,8 +53,7 @@
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 <script type="text/javascript" src="script/firebaseConfig.js"></script>
 <script type="text/javascript" src="script/functions.js"></script>
-<script type="text/javascript" src="script/chat.js"></script>
-<script type="text/javascript" src="script/write.js"></script>
+<script type="text/javascript" src="script/userPrecense.js"></script>
 <script type="text/javascript" src="script/read.js"></script>
 <script src="script/bootstrap/bootstrap.min.js"></script>
 </body>

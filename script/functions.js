@@ -66,7 +66,7 @@ function showOnlineUsers(){
         showOnlineUsers.innerHTML = "";
         usersOnline.forEach(function (displayUserOnline){
             let usersDisplay = document.createElement('p');
-            usersDisplay.innerText = displayUserOnline.username;
+            usersDisplay.innerHTML = '<i class="fas fa-circle"></i> '+displayUserOnline.username;
             $(showOnlineUsers).append(usersDisplay);
             usersOnline = [];
         });
@@ -104,14 +104,13 @@ function chatDisplayMessage(){
             mainArticle.appendChild(paragraphTwo);
             let ParagraphTwoText = document.createTextNode(chatmessage);
             paragraphTwo.appendChild(ParagraphTwoText);
-
         });
         document.querySelector('#mainChat > section:first-of-type').scrollTo(0, 5000);
     });
 }
 function formContent(){
     return `<form><div class="form-group input-group">
-                    <div class="input-group-prepend">
+                    <div class="input-group-prepend btn-outline-secondary">
                         <span class="input-group-text"><i class="far fa-smile"></i></span>
                     </div>
                     <input class="form-control" type="text" id="message" placeholder="Skriv meddelande">
@@ -125,9 +124,7 @@ function theTimer() {
     let currentDate = new Date();
     let time = currentDate.toLocaleTimeString();
     let date = currentDate.toLocaleDateString();
-    document.getElementsByClassName("chatTimeStamp").innerHTML += date + time;
-
-    timeStamp = date+' '+time;
+    document.getElementsByClassName("chatTimeStamp").innerHTML += timeStamp = date+' '+time;
 }
 
 //FUNCTION TO SEND MESSAGES
