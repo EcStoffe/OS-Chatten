@@ -214,14 +214,27 @@ body {
 #userControls > div p:last-of-type {
     margin:0;
 }
-#generalChat {
+#mainChat {
     width:70%;
+    margin-left:20px;
     height:500px;
     display:flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
 
+}
+#chatRooms {
+    width:200px;
+    padding:5px 5px;
+
+    display:flex;
+    flex-direction: column;
+}#chatRooms button {
+    width:100%;
+    margin:5px 5px;
+
+    text-align: center;
 }
 #chatControls {
     width:100%;
@@ -230,7 +243,7 @@ body {
     margin-top:15px;
 
 }
-#displayMessage {
+#mainChat > section:first-of-type {
     margin:10px 10px;
     padding:5px 5px;
     max-height:440px;

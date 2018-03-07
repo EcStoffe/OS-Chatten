@@ -1,3 +1,4 @@
+/*
 //CREATE TIMESTAMP
 setInterval(function(){theTimer();},1000);
 function theTimer() {
@@ -9,7 +10,7 @@ function theTimer() {
 timeStamp = date+' '+time;
 }
 //TRIGGER SUBMIT EVENTLISTENER
-document.getElementById('chatControls').addEventListener('submit', sendMessage);
+document.getElementById('chatControls').addEventListener('click', sendMessage);
 //FUNCTION TO SEND MESSAGES
 function sendMessage(e) {
     e.preventDefault();
@@ -30,6 +31,5 @@ function saveMessage(myUserName, chatText, timeStamp){
         chattext: chatText,
         timestamp: timeStamp
     };
-
-    firebase.database().ref("chatMessage/").push(newMessageRef)
-}
+    firebase.database().ref("chatRoomOne/").push(newMessageRef)
+}*/
