@@ -20,11 +20,7 @@ function regForm(e) {
         if(user) {
             saveInputs(username, fullname, email, password);
             user.updateProfile({ displayName: username })
-            .then(function() { window.location="chat.html"; })
             .catch(function() {
-                if(user.displayName === null) {
-                    user.updateProfile({ displayName: username })
-                }
             }); //...
         }
     });
