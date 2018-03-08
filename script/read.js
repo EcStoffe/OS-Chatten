@@ -9,9 +9,9 @@ firebase.auth().onAuthStateChanged(function(user) {
             $('#welcome').css('display', 'none');
             firebaseref = firebase.database().ref("chatRoomOne/");
             $('#mainChat').html(`<section id="chatRoomOne"></section>`+formContent());
-            existingID = document.getElementById('chatRoomOne');
+            existingID = $('#chatRoomOne');
             chatDisplayMessage();
-            document.querySelector('form').addEventListener('submit', sendMessageChat);
+            $('form').submit(sendMessageChat);
         });
         $('#chatRoom-Two').click(function(event){
             event.preventDefault();
@@ -19,9 +19,9 @@ firebase.auth().onAuthStateChanged(function(user) {
             $('#welcome').css('display', 'none');
             firebaseref = firebase.database().ref("chatRoomTwo/");
             $('#mainChat').html(`<section id="chatRoomTwo"></section>`+formContent());
-            existingID = document.getElementById('chatRoomTwo');
+            existingID = $('#chatRoomTwo');
             chatDisplayMessage();
-            document.querySelector('form').addEventListener('submit', sendMessageChat);
+            $('form').submit(sendMessageChat);
         });
         $('#chatRoom-Three').click(function(event){
             event.preventDefault();
@@ -29,9 +29,9 @@ firebase.auth().onAuthStateChanged(function(user) {
             $('#welcome').css('display', 'none');
             firebaseref = firebase.database().ref("chatRoomThree/");
             $('#mainChat').html(`<section id="chatRoomThree"></section>`+formContent());
-            existingID = document.getElementById('chatRoomThree');
+            existingID = $('#chatRoomThree');
             chatDisplayMessage();
-            document.querySelector('form').addEventListener('submit', sendMessageChat);
+            $('form').submit(sendMessageChat);
         });
     }
 });
