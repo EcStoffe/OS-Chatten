@@ -13,9 +13,10 @@ firebase.auth().onAuthStateChanged(function(user) {
             $('body').css('background-image', 'url(images/sunvacation.jpg)');
             $('#welcome').css('display', 'none');
             firebaseref = firebase.database().ref("chatRoomOne/");
-            $('#mainChat').html(`<section id="chatRoomOne"></section>`+formContent());
-            existingID = $('#chatRoomOne');
+
             $("document").ready(function() {
+                $('#mainChat').html(`<section id="chatRoomOne"></section>`+formContent());
+                existingID = $('#chatRoomOne');
                 chatDisplayMessage();
                 $('form').submit(sendMessageChat);
             });
@@ -27,9 +28,10 @@ firebase.auth().onAuthStateChanged(function(user) {
             $('body').css('background-image', 'url(images/wintervacation.jpg)');
             $('#welcome').css('display', 'none');
             firebaseref = firebase.database().ref("chatRoomTwo/");
-            $('#mainChat').html(`<section id="chatRoomTwo"></section>`+formContent());
-            existingID = $('#chatRoomTwo');
+
             $("document").ready(function() {
+                $('#mainChat').html(`<section id="chatRoomTwo"></section>`+formContent());
+                existingID = $('#chatRoomTwo');
                 chatDisplayMessage();
                 $('form').submit(sendMessageChat);
             });
@@ -40,9 +42,10 @@ firebase.auth().onAuthStateChanged(function(user) {
             $('body').css('background-image', 'url(images/weekend.jpg)');
             $('#welcome').css('display', 'none');
             firebaseref = firebase.database().ref("chatRoomThree/");
-            $('#mainChat').html(`<section id="chatRoomThree"></section>`+formContent());
-            existingID = $('#chatRoomThree');
+
             $("document").ready(function() {
+                $('#mainChat').html(`<section id="chatRoomThree"></section>`+formContent());
+                existingID = $('#chatRoomThree');
                 chatDisplayMessage();
                 $('form').submit(sendMessageChat);
             });
