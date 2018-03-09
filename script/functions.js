@@ -71,11 +71,12 @@ function showOnlineUsers(){
     });
 }
 
-function chatDisplayMessage(){
+function chatDisplayRoomOneMessage(){
     firebaseref.on("value", function(data) {
         let messagesObj = data.val();
         let messages = Object.values(messagesObj);
-        existingID.html("");
+        let chatRoomOnes = $("#chatRoomOne");
+        chatRoomOnes.html("");
 
         messages.forEach(function(message) {
             let author = message.username;
@@ -88,13 +89,64 @@ function chatDisplayMessage(){
             let spanTwo = $('<span></span>').attr('class', 'chatTimeStamp').text(timeStamped);
             let paragraphTwo = $('<p></p>').attr('class', 'chatMessage').text(chatmessage);
 
-            existingID.append(mainArticle);
+            $("#chatRoomOne").append(mainArticle);
             mainArticle.append(paragraphOne, paragraphTwo);
             paragraphOne.append(spanOne, spanTwo);
         });
-        $('#mainChat').find('section:first-of-type').animate({scrollTop: $('article:last-of-type').position().top}, 0);
-        return false;
-        
+        chatRoomOnes.animate({scrollTop: $('article:last-of-type').position().top}, 0);
+        //return false;
+    });
+}
+function chatDisplayRoomTwoMessage(){
+    firebaseref.on("value", function(data) {
+        let messagesObj = data.val();
+        let messages = Object.values(messagesObj);
+        let chatRoomTwos = $("#chatRoomTwo");
+        chatRoomTwos.html("");
+
+        messages.forEach(function(message) {
+            let author = message.username;
+            let chatmessage = message.chattext;
+            let timeStamped = message.timestamp;
+
+            let mainArticle = $('<article></article>').attr('class', 'chatContent');
+            let paragraphOne = $('<p></p>');
+            let spanOne = $('<span></span>').attr('class', 'chatUserName').text(author);
+            let spanTwo = $('<span></span>').attr('class', 'chatTimeStamp').text(timeStamped);
+            let paragraphTwo = $('<p></p>').attr('class', 'chatMessage').text(chatmessage);
+
+            $("#chatRoomTwo").append(mainArticle);
+            mainArticle.append(paragraphOne, paragraphTwo);
+            paragraphOne.append(spanOne, spanTwo);
+        });
+        chatRoomTwos.animate({scrollTop: $('article:last-of-type').position().top}, 0);
+        //return false;
+    });
+}
+function chatDisplayRoomThreeMessage(){
+    firebaseref.on("value", function(data) {
+        let messagesObj = data.val();
+        let messages = Object.values(messagesObj);
+        let chatRoomThrees = $("#chatRoomThree");
+        chatRoomThrees.html("");
+
+        messages.forEach(function(message) {
+            let author = message.username;
+            let chatmessage = message.chattext;
+            let timeStamped = message.timestamp;
+
+            let mainArticle = $('<article></article>').attr('class', 'chatContent');
+            let paragraphOne = $('<p></p>');
+            let spanOne = $('<span></span>').attr('class', 'chatUserName').text(author);
+            let spanTwo = $('<span></span>').attr('class', 'chatTimeStamp').text(timeStamped);
+            let paragraphTwo = $('<p></p>').attr('class', 'chatMessage').text(chatmessage);
+
+            $("#chatRoomThree").append(mainArticle);
+            mainArticle.append(paragraphOne, paragraphTwo);
+            paragraphOne.append(spanOne, spanTwo);
+        });
+        chatRoomThrees.animate({scrollTop: $('article:last-of-type').position().top}, 0);
+        //return false;
     });
 }
 function formContent(){
