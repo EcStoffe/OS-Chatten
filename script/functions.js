@@ -140,5 +140,3 @@ function theTimer() {
     let date = currentDate.toLocaleDateString();
     document.getElementsByClassName("chatTimeStamp").innerHTML += timeStamp = date+ ' ' +time;
 }
-
-//FUNCTION TO SEND MESSAGES
