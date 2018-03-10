@@ -1,4 +1,4 @@
-let usersOnline = [];
+/*let usersOnline = [];
 let refUsersOnline = db.ref('users/').child('/'); // Belongs to callback function showOnlineUsers.
 firebase.auth().onAuthStateChanged(function(user) { // Firebase auth check for status change
     if (user) {
@@ -24,4 +24,4 @@ firebase.auth().onAuthStateChanged(function(user) { // Firebase auth check for s
         }
     }
     else { location.href = "index.html"; }
-});
+});*/
