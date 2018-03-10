@@ -47,30 +47,6 @@ function hideUserNav(e) {
     e.preventDefault();
     $('#userControls').hide();
 }
-// Function to display users that are online.
-function showOnlineUsers(){
-    let existing = $('#onlineWindow');
-    let showOnlineUsers = $('<div></div>');
-    showOnlineUsers.attr('id', 'onlinePresence');
-    $(existing).append(showOnlineUsers);
-    refUsersOnline.on("value", function(data) {
-        let users = data.val();
-        let values = Object.values(users);
-        values.forEach(function(onlineUser) {
-            if(onlineUser.status === "Online"){
-                usersOnline.push({username: onlineUser.username, status: onlineUser.status});
-            }
-        });
-        showOnlineUsers.innerHTML = "";
-        usersOnline.forEach(function (displayUserOnline){
-            let usersDisplay = $('<p></p>');
-            usersDisplay.html('<i class="fas fa-circle"></i> '+displayUserOnline.username);
-            $(showOnlineUsers).append(usersDisplay);
-            usersOnline = [];
-        });
-    });
-}
-
 function chatDisplayRoomOneMessage(){
     firebaseref.on("value", function(data) {
         let messagesObj = data.val();
@@ -93,8 +69,7 @@ function chatDisplayRoomOneMessage(){
             mainArticle.append(paragraphOne, paragraphTwo);
             paragraphOne.append(spanOne, spanTwo);
         });
-        chatRoomOnes.animate({scrollTop: $('article:last-of-type').position().top}, 0);
-        //return false;
+        document.getElementById("chatRoomOne").scrollTo(0, 5000);
     });
 }
 function chatDisplayRoomTwoMessage(){
@@ -119,8 +94,7 @@ function chatDisplayRoomTwoMessage(){
             mainArticle.append(paragraphOne, paragraphTwo);
             paragraphOne.append(spanOne, spanTwo);
         });
-        chatRoomTwos.animate({scrollTop: $('article:last-of-type').position().top}, 0);
-        //return false;
+        document.getElementById("chatRoomTwo").scrollTo(0, 5000);
     });
 }
 function chatDisplayRoomThreeMessage(){
@@ -145,8 +119,7 @@ function chatDisplayRoomThreeMessage(){
             mainArticle.append(paragraphOne, paragraphTwo);
             paragraphOne.append(spanOne, spanTwo);
         });
-        chatRoomThrees.animate({scrollTop: $('article:last-of-type').position().top}, 0);
-        //return false;
+        document.getElementById("chatRoomThree").scrollTo(0, 5000);
     });
 }
 function formContent(){
@@ -166,24 +139,4 @@ function theTimer() {
     let time = currentDate.toLocaleTimeString();
     let date = currentDate.toLocaleDateString();
     document.getElementsByClassName("chatTimeStamp").innerHTML += timeStamp = date+ ' ' +time;
-}
-
-//FUNCTION TO SEND MESSAGES
-function sendMessageChat(e) {
-    e.preventDefault();
-    let chatText = $('#message').val();
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            sendMessages(myUserName, chatText, timeStamp);
-            $('form')[0].reset();
-        }
-    });
-}
-function sendMessages(myUserName, chatText, timeStamp){
-    let newMessageRef = {
-        username: myUserName,
-        chattext: chatText,
-        timestamp: timeStamp
-    };
-    firebaseref.push(newMessageRef)
 }

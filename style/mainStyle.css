@@ -320,10 +320,11 @@ body {
 #mainChat form button {
     background:gainsboro;
 }
-#mainChat > section:first-of-type {
+#chatRoomOne, #chatRoomTwo, #chatRoomThree {
     padding:10px 10px 20px 10px;
-    overflow-y:scroll;
+    overflow-y:auto;
     width:100%;
+    height:100%;
 }
 .form-group {
     margin-bottom:0;
