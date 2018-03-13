@@ -199,11 +199,11 @@ body {
     color:white;
 }
 a{
-    color: white;
+    color: darkslategray;
 }
 a:hover{
     text-decoration: none;
-    color: white;
+    color: darkslategray;
 }
 #dbUserName {
     width:30%;
@@ -311,12 +311,11 @@ a:hover{
     color:gainsboro;
 
 }
-#chatRooms button:focus{
+#chatRooms button:focus , button:active{
     outline: none!important;
     box-shadow: none!important;
     background:darkslategray;
     color:gainsboro;
-
 }
 #mainChat form {
     width:100%;
