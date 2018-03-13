@@ -35,6 +35,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 
         $('#chatRoom-One').click(function(event){
             event.preventDefault();
+            $('#chatRoom-One').addClass('active');
+            $('#chatRoom-Two').removeClass('active');
+            $('#chatRoom-Three').removeClass('active');
             $('body').css('background-image', 'url(images/sunvacation.jpg)');
             $('#welcome').css('display', 'none');
             firebaseref = firebase.database().ref("chatRoomOne/");
@@ -44,6 +47,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         });
         $('#chatRoom-Two').click(function(event){
             event.preventDefault();
+            $('#chatRoom-One').removeClass('active');
+            $('#chatRoom-Two').addClass('active');
+            $('#chatRoom-Three').removeClass('active');
             $('body').css('background-image', 'url(images/wintervacation.jpg)');
             $('#welcome').css('display', 'none');
             firebaseref = firebase.database().ref("chatRoomTwo/");
@@ -53,6 +59,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         });
         $('#chatRoom-Three').click(function(event){
             event.preventDefault();
+            $('#chatRoom-One').removeClass('active');
+            $('#chatRoom-Two').removeClass('active');
+            $('#chatRoom-Three').addClass('active');
             $('body').css('background-image', 'url(images/weekend.jpg)');
             $('#welcome').css('display', 'none');
             firebaseref = firebase.database().ref("chatRoomThree/");

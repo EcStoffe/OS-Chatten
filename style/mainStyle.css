@@ -306,7 +306,13 @@ a:hover{
 #chatRooms button:last-of-type {
     margin:5px 0 5px 0;
 }
-#chatRooms button:hover, button:focus{
+#chatRooms button:hover{
+    outline: none!important;
+    box-shadow: none!important;
+    background:darkslategray;
+    color:gainsboro;
+}
+.active{
     outline: none!important;
     box-shadow: none!important;
     background:darkslategray;
