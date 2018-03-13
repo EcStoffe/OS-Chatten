@@ -127,7 +127,7 @@ function formContent(){
                     <div class="input-group-prepend btn-outline-secondary">
                         <span class="input-group-text"><i class="far fa-smile"></i></span>
                     </div>
-                    <input class="form-control" type="text" id="message" placeholder="Skriv meddelande">
+                    <input class="form-control" type="text" id="message" placeholder="Write your message" required>
                     <div id="buttonHome" class="input-group-append">
                         <button type="submit" class="btn btn-outline-secondary"><i class="fas fa-sign-in-alt"></i></button>
                     </div>

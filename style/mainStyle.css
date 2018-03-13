@@ -128,7 +128,7 @@ body {
     width:60%;
 }
 #regUser section:first-of-type {
-    background:rgba(255,255,255,.6);
+    background:rgba(255,255,255,.9);
     padding:25px;
     border-radius:5px;
 }
@@ -142,7 +142,7 @@ body {
 
 **************************************************************/
 #loginNeeded {
-    background:rgba(255,255,255,.6);
+    background:rgba(255,255,255,.9);
     border-radius:5px;
     padding:20px 20px;
 }
@@ -184,7 +184,7 @@ body {
     justify-content: space-between;
     align-items: center;
 
-    background:rgba(255,255,255,.6);
+    background:rgba(255,255,255,.9);
 }
 #fixedNav h3 {
     width:100%;
@@ -276,7 +276,7 @@ a:hover{
     justify-content: flex-end;
     align-items: flex-end;
 
-    background:rgba(255,255,255,.6);
+    background:rgba(255,255,255,.9);
     border-radius:5px;
 }
 #chatRooms {
@@ -402,7 +402,7 @@ input:focus{
 #onlineWindow {
     width: 30%;
     height: 500px;
-    background:rgba(255,255,255,.6);
+    background:rgba(255,255,255,.9);
     border-radius:5px;
 
     display:flex;
