@@ -198,8 +198,12 @@ body {
     font: normal 400 23px/23px 'Montserrat', sans-serif;
     color:white;
 }
+a{
+    color: white;
+}
 a:hover{
     text-decoration: none;
+    color: white;
 }
 #dbUserName {
     width:30%;
