@@ -21,7 +21,7 @@ function regForm(e) {
             saveInputs(username, fullname, email, password);
             user.updateProfile({ displayName: username })
             .catch(function() {
-            }); //...
+            });
         }
     });
 }
