@@ -1,10 +1,9 @@
 // Functions to save user details for registration
-function saveInputs(username, fullname, email, password){
+function saveInputs(username, fullname, email){
     firebase.database().ref('users/' + username).set({
         username: username,
         name: fullname,
         email: email,
-        password: password,
         status: "Online"
     });
 }
@@ -18,7 +17,7 @@ function regForm(e) {
     promise.catch(e => alert("Error: "+e.message));
     firebase.auth().onAuthStateChanged(user => {
         if(user) {
-            saveInputs(username, fullname, email, password);
+            saveInputs(username, fullname, email);
             user.updateProfile({ displayName: username })
             .catch(function() {
             });
@@ -136,7 +135,8 @@ function formContent(){
 }
 function theTimer() {
     let currentDate = new Date();
-    let time = currentDate.toLocaleTimeString();
     let date = currentDate.toLocaleDateString();
-    document.getElementsByClassName("chatTimeStamp").innerHTML += timeStamp = date+ ' ' +time;
+    let time = currentDate.toLocaleTimeString();
+    timeStamp = date+ ' ' +time;
+    document.getElementsByClassName("chatTimeStamp").innerHTML += timeStamp;
 }

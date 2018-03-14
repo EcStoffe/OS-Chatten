@@ -79,6 +79,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                     });
             }
             $('#logout').on('click', logOut); // Eventhandler for click to callback function logOut.
+
         function sendMessageChat(e) {
             e.preventDefault();
             let chatText = $('#message').val();
